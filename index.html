@@ -1,0 +1,3071 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Magic of Tarot and Astrology - Course Companion</title>
+  <style>
+    :root {
+      --ink: #27222c;
+      --muted: #6f6374;
+      --paper: #fff7fb;
+      --paper-deep: #eef9f8;
+      --panel: #fffdfd;
+      --line: rgba(139, 115, 148, 0.2);
+      --rose: #f4c5d5;
+      --rose-deep: #d889a5;
+      --teal: #248c90;
+      --teal-soft: #d9f3f0;
+      --violet: #8560a7;
+      --violet-soft: #efe6f8;
+      --gold: #c69b4b;
+      --gold-soft: #f4e3bf;
+      --green: #698c72;
+      --glass: rgba(255, 255, 255, 0.55);
+      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-line: rgba(255, 255, 255, 0.62);
+      --shadow: 0 18px 52px rgba(74, 44, 84, 0.14);
+      --radius: 8px;
+      --sans: "Segoe UI", Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: "Cascadia Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.5;
+      background:
+        linear-gradient(135deg, rgba(244, 197, 213, 0.62) 0%, rgba(255, 255, 255, 0) 34%),
+        linear-gradient(220deg, rgba(157, 225, 219, 0.55) 0%, rgba(255, 255, 255, 0) 38%),
+        linear-gradient(180deg, #fff8fc 0%, #f5fbfb 46%, #f8f0fb 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.52;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.92) 1px, transparent 1.8px),
+        radial-gradient(circle, rgba(133, 96, 167, 0.26) 1px, transparent 1.8px),
+        linear-gradient(115deg, rgba(255, 255, 255, 0.24), rgba(36, 140, 144, 0.08), rgba(244, 197, 213, 0.18));
+      background-position: 0 0, 28px 34px, 0 0;
+      background-size: 78px 78px, 124px 124px, 100% 100%;
+      animation: skyDrift 28s linear infinite;
+      mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.78) 72%, transparent);
+    }
+
+    @keyframes skyDrift {
+      from { background-position: 0 0, 28px 34px, 0 0; }
+      to { background-position: 78px 78px, 152px 158px, 0 0; }
+    }
+
+    .starscape {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .twinkle {
+      position: absolute;
+      border-radius: 50%;
+      animation: twinkleAnim ease-in-out infinite;
+    }
+
+    @keyframes twinkleAnim {
+      0%, 100% { opacity: 0.08; transform: scale(0.78); }
+      50% { opacity: 0.9; transform: scale(1.14); }
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+    }
+
+    .shell {
+      width: min(1500px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 4px 14px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 6px;
+      align-content: center;
+    }
+
+    .brand-line {
+      height: 3px;
+      border-radius: 2px;
+      max-width: 360px;
+      margin-top: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--rose-deep), var(--violet), transparent);
+    }
+
+    .kicker {
+      color: var(--teal);
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-weight: 850;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--violet);
+      background: linear-gradient(105deg, var(--violet), var(--teal), var(--rose-deep));
+      background-size: 220% 220%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGlow 9s ease infinite;
+    }
+
+    @keyframes titleGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 31px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stat {
+      display: grid;
+      gap: 2px;
+      text-align: center;
+    }
+
+    .stat-ring {
+      width: 48px;
+      height: 48px;
+      position: relative;
+    }
+
+    .stat-ring svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .stat-ring-num {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .tab,
+    .btn,
+    .chip,
+    .select-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid rgba(139, 115, 148, 0.22);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.58);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(74, 44, 84, 0.05);
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+      white-space: nowrap;
+    }
+
+    .tab {
+      flex: 1;
+    }
+
+    .tab[data-active="true"],
+    .chip[data-active="true"],
+    .select-button[data-active="true"] {
+      border-color: rgba(23, 125, 130, 0.45);
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--violet));
+      box-shadow: 0 12px 28px rgba(36, 140, 144, 0.22);
+    }
+
+    .tab:hover,
+    .btn:hover,
+    .chip:hover,
+    .select-button:hover {
+      transform: translateY(-1px);
+      border-color: var(--teal);
+      box-shadow: 0 10px 28px rgba(36, 140, 144, 0.16);
+    }
+
+    .btn.primary {
+      border-color: var(--teal);
+      color: #fff;
+      background: linear-gradient(90deg, var(--teal), var(--rose-deep), var(--violet), var(--teal));
+      background-size: 260% auto;
+      animation: btnGr 7s linear infinite;
+    }
+
+    @keyframes btnGr {
+      0% { background-position: 0% center; }
+      100% { background-position: 260% center; }
+    }
+
+    .btn.warn {
+      border-color: rgba(216, 137, 165, 0.55);
+      color: var(--ink);
+      background: var(--rose);
+    }
+
+    .btn.ghost {
+      background: rgba(255, 255, 255, 0.34);
+    }
+
+    .btn[data-ico]::before,
+    .tab[data-ico]::before {
+      content: attr(data-ico);
+      display: none;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      color: currentColor;
+      border: 1px solid currentColor;
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .main {
+      min-height: 600px;
+    }
+
+    .view {
+      display: grid;
+      gap: 16px;
+    }
+
+    .band,
+    .surface {
+      border: 1px solid var(--glass-line);
+      border-radius: var(--radius);
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 34px rgba(74, 44, 84, 0.1);
+    }
+
+    .band {
+      padding: 18px;
+    }
+
+    .surface {
+      padding: 16px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section-head .copy {
+      display: grid;
+      gap: 5px;
+      max-width: 820px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .layout-2 {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.86fr) minmax(420px, 1.42fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .layout-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .sign-strip,
+    .filter-strip,
+    .button-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .sign-strip {
+      max-height: 220px;
+      overflow: auto;
+      padding-right: 3px;
+    }
+
+    .select-button {
+      min-width: 105px;
+      justify-content: flex-start;
+    }
+
+    .select-button .mark {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-deep), var(--teal));
+      box-shadow: 0 0 0 3px rgba(244, 197, 213, 0.28);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 10px 0 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.64);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.54);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .badge.fire { border-color: rgba(216, 137, 165, 0.62); background: #fff4f7; }
+    .badge.earth { border-color: rgba(105, 140, 114, 0.46); background: #f3f8f1; }
+    .badge.air { border-color: rgba(23, 125, 130, 0.42); background: #eefafa; }
+    .badge.water { border-color: rgba(114, 84, 147, 0.38); background: #f4eff9; }
+
+    .prompt-list,
+    .source-list,
+    .plain-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .prompt-list li,
+    .source-list li,
+    .plain-list li {
+      padding: 10px 11px;
+      border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: rgba(255, 255, 255, 0.56);
+    }
+
+    .source-list li {
+      border-left-color: var(--gold);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .course-card,
+    .mini-card,
+    .reading-entry,
+    .note-item {
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.54);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 24px rgba(74, 44, 84, 0.08);
+    }
+
+    .course-card {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border-left: 3px solid var(--rose-deep);
+    }
+
+    .course-card .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .course-card .body {
+      display: grid;
+      gap: 8px;
+    }
+
+    .course-card .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid rgba(139, 115, 148, 0.12);
+    }
+
+    .card-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .card-title strong {
+      font-size: 15px;
+      line-height: 1.12;
+    }
+
+    .arcana {
+      display: grid;
+      place-items: center;
+      flex: 0 0 36px;
+      width: 36px;
+      height: 46px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      color: var(--violet);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(216, 243, 240, 0.34)),
+        linear-gradient(315deg, rgba(244, 197, 213, 0.34), rgba(133, 96, 167, 0.16));
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.28), 0 8px 18px rgba(74, 44, 84, 0.1);
+    }
+
+    .arcana::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(36, 140, 144, 0.18);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .card-meta {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .compact-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    textarea,
+    input[type="search"],
+    input[type="text"],
+    select {
+      width: 100%;
+      border: 1px solid rgba(139, 115, 148, 0.2);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.64);
+    }
+
+    textarea {
+      min-height: 88px;
+      resize: none;
+      padding: 10px 11px;
+    }
+
+    input[type="search"],
+    input[type="text"],
+    select {
+      min-height: 42px;
+      padding: 8px 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    label span {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .checkline {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 12px;
+      border: 1px solid rgba(36, 140, 144, 0.28);
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.52);
+      box-shadow: 0 8px 22px rgba(36, 140, 144, 0.08);
+      cursor: pointer;
+    }
+
+    .checkline[data-done="true"] {
+      color: #fff;
+      border-color: rgba(36, 140, 144, 0.52);
+      background: linear-gradient(135deg, var(--teal), var(--violet));
+      box-shadow: 0 12px 28px rgba(36, 140, 144, 0.2);
+    }
+
+    .checkline input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--teal);
+    }
+
+    .checkline span {
+      color: currentColor;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 850;
+      text-transform: none;
+    }
+
+    .progress-row {
+      display: grid;
+      gap: 7px;
+    }
+
+    .progress-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: inset 0 1px 4px rgba(74, 44, 84, 0.08);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--teal), var(--rose-deep), var(--violet));
+    }
+
+    .library-toolbar,
+    .lab-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .lab-grid {
+      align-items: stretch;
+    }
+
+    .library-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 12px;
+    }
+
+    .mini-card {
+      display: grid;
+      gap: 10px;
+      min-height: 210px;
+      padding: 13px;
+    }
+
+    .mini-card .mini-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mini-card .mini-top strong {
+      font-size: 17px;
+    }
+
+    .empty {
+      padding: 18px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .draw-card {
+      display: grid;
+      place-items: center;
+      min-height: 220px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background:
+        linear-gradient(145deg, rgba(244, 197, 213, 0.38), rgba(216, 243, 240, 0.58)),
+        rgba(255, 255, 255, 0.54);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      text-align: center;
+    }
+
+    .draw-card .arcana {
+      width: 62px;
+      height: 84px;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .reading-entry,
+    .note-item {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .spread-position-row {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spread-pos-num {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--violet);
+      background: rgba(133, 96, 167, 0.1);
+      margin-top: 2px;
+    }
+
+    .note-item pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: var(--sans);
+      color: var(--ink);
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+      gap: 16px;
+    }
+
+    .library-cover {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid var(--glass-line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(244, 197, 213, 0.24), rgba(216, 243, 240, 0.38)),
+        rgba(255, 255, 255, 0.48);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .study-shell {
+      display: grid;
+      grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .lesson-rail,
+    .lesson-stage,
+    .library-panel {
+      border: 1px solid var(--glass-line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.48);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 34px rgba(74, 44, 84, 0.1);
+    }
+
+    .lesson-rail {
+      position: sticky;
+      top: 14px;
+      display: grid;
+      gap: 8px;
+      max-height: calc(100vh - 28px);
+      overflow: auto;
+      padding: 12px;
+    }
+
+    .rail-head {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(139, 115, 148, 0.16);
+    }
+
+    .lesson-list {
+      display: grid;
+      gap: 4px;
+    }
+
+    .lesson-button {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 8px;
+      align-items: start;
+      width: 100%;
+      min-height: 38px;
+      padding: 7px 8px;
+      border: 1px solid rgba(255, 255, 255, 0);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.22);
+      text-align: left;
+      cursor: pointer;
+      font-size: 13px;
+      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+    }
+
+    .lesson-button:hover,
+    .lesson-button[data-active="true"] {
+      transform: translateY(-1px);
+      border-color: rgba(36, 140, 144, 0.32);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .lesson-button[data-done="true"] strong {
+      color: var(--teal);
+    }
+
+    .lesson-button strong,
+    .lesson-button em {
+      display: block;
+      font-style: normal;
+    }
+
+    .lesson-button strong {
+      font-size: 12px;
+    }
+
+    .lesson-button em {
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .lesson-dot {
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      position: relative;
+      border-radius: 4px;
+      border: 1px solid rgba(36, 140, 144, 0.34);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    .lesson-dot[data-done="true"] {
+      border-color: rgba(36, 140, 144, 0.76);
+      background: linear-gradient(135deg, var(--teal), var(--violet));
+      box-shadow: 0 0 0 4px rgba(36, 140, 144, 0.12);
+    }
+
+    .lesson-dot::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 4px;
+      height: 7px;
+      border-right: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      opacity: 0;
+      transform: rotate(42deg);
+    }
+
+    .lesson-dot[data-done="true"]::after {
+      opacity: 1;
+    }
+
+    .lesson-stage {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .lesson-stage > .surface {
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .lesson-focus {
+      min-height: 620px;
+    }
+
+    .card-index {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    }
+
+    .compact-library {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .library-card {
+      display: grid;
+      gap: 11px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      border-top: 4px solid var(--teal);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.52);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 28px rgba(74, 44, 84, 0.09);
+      min-height: 272px;
+    }
+
+    .library-card.fire { border-top-color: var(--rose-deep); }
+    .library-card.water { border-top-color: var(--violet); }
+    .library-card.air { border-top-color: var(--teal); }
+    .library-card.earth { border-top-color: var(--green); }
+    .library-card.planet { border-top-color: var(--gold); }
+
+    .library-card-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 11px;
+      align-items: start;
+    }
+
+    .library-card-head .arcana {
+      width: 36px;
+      height: 46px;
+      font-size: 15px;
+    }
+
+    .badge.planet {
+      border-color: rgba(201, 154, 67, 0.45);
+      background: #fff8e8;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      max-width: 340px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--violet));
+      box-shadow: var(--shadow);
+      transform: translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 180ms ease;
+    }
+
+    .toast[data-show="true"] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer {
+      display: grid;
+      gap: 6px;
+      margin-top: 18px;
+      padding: 15px 18px;
+      border-top: 1px solid rgba(139, 115, 148, 0.16);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.28);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .footer a {
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    @media (max-width: 980px) {
+      .topbar,
+      .layout-2,
+      .source-grid,
+      .study-shell,
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-rail {
+        position: static;
+        max-height: none;
+      }
+
+      .layout-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 20px, 1500px);
+        padding-top: 10px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .band,
+      .surface {
+        padding: 13px;
+      }
+
+      .stats {
+        gap: 12px;
+      }
+
+      .stat-ring {
+        width: 40px;
+        height: 40px;
+      }
+
+      .layout-3,
+      .library-toolbar,
+      .card-index {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .tab {
+        flex: none;
+        width: 100%;
+      }
+
+      .btn,
+      .chip,
+      .select-button {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      body::before,
+      .starscape,
+      .tabs,
+      .button-row,
+      .toast {
+        display: none;
+      }
+
+      .shell {
+        width: 100%;
+        padding: 0;
+      }
+
+      .band,
+      .surface,
+      .course-card,
+      .mini-card,
+      .reading-entry,
+      .note-item,
+      .topbar {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="starscape" id="starscape" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="kicker">High Priestess Tarot School</div>
+        <h1>The Magic of Tarot and Astrology</h1>
+        <div class="brand-line"></div>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat">
+          <div class="stat-ring">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="19" fill="none" stroke="rgba(139,115,148,0.12)" stroke-width="3"/>
+              <circle id="ring-lessons" cx="24" cy="24" r="19" fill="none" stroke="url(#ring-gr-teal)" stroke-width="3" stroke-dasharray="119.4" stroke-dashoffset="119.4" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="ring-gr-teal"><stop offset="0%" stop-color="var(--teal)"/><stop offset="100%" stop-color="var(--violet)"/></linearGradient>
+              </defs>
+            </svg>
+            <div class="stat-ring-num" id="stat-lessons">0</div>
+          </div>
+          <span>Lessons</span>
+        </div>
+        <div class="stat">
+          <div class="stat-ring">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="19" fill="none" stroke="rgba(139,115,148,0.12)" stroke-width="3"/>
+              <circle id="ring-notes" cx="24" cy="24" r="19" fill="none" stroke="var(--rose-deep)" stroke-width="3" stroke-dasharray="119.4" stroke-dashoffset="119.4" stroke-linecap="round"/>
+            </svg>
+            <div class="stat-ring-num" id="stat-notes">0</div>
+          </div>
+          <span>Notes</span>
+        </div>
+        <div class="stat">
+          <div class="stat-ring">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="19" fill="none" stroke="rgba(139,115,148,0.12)" stroke-width="3"/>
+              <circle id="ring-readings" cx="24" cy="24" r="19" fill="none" stroke="var(--gold)" stroke-width="3" stroke-dasharray="119.4" stroke-dashoffset="119.4" stroke-linecap="round"/>
+            </svg>
+            <div class="stat-ring-num" id="stat-readings">0</div>
+          </div>
+          <span>Readings</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs" aria-label="Course sections"></nav>
+    <main class="main" id="app"></main>
+
+    <footer class="footer">
+      <p>High Priestess Tarot School | The Magic of Tarot and Astrology</p>
+      <p>Copyright 2026 S Sink Coaching. PO Box 1651, Gillette, WY 82717-1651.</p>
+      <p><a href="https://sunnysink.com/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a> | <a href="https://sunnysink.com/terms-and-conditions" target="_blank" rel="noreferrer">Terms and Conditions</a></p>
+    </footer>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const STORAGE_KEY = "magic_tarot_astrology_companion_v1";
+
+    const TABS = [
+      { id: "overview", label: "Study", ico: "*" },
+      { id: "library", label: "Library", ico: "#" },
+      { id: "spreads", label: "Spreads", ico: "~" },
+      { id: "lab", label: "Reading Lab", ico: "+" },
+      { id: "notes", label: "Notes", ico: "=" }
+    ];
+
+    const SIGNS = [
+      {
+        id: "aries",
+        name: "Aries",
+        dates: "Mar 21 - Apr 20",
+        element: "Fire",
+        modality: "Cardinal",
+        rhythm: "Diurnal",
+        ruler: "Mars",
+        season: "First sign of the zodiac and beginning of spring.",
+        essence: "Purpose, drive, courage, determination, stamina, and self-actualization.",
+        growth: "Finding and following the soul's mission.",
+        seasonWork: "Plant seeds, explore externally, socialize, and give the year its first spark.",
+        transcript: "02 Aries.txt",
+        cards: [
+          { name: "The Emperor", kind: "Major Arcana", keyword: "Control", planet: "Aries", teaching: "Responsibility, focus, and the drive to build something real. Aries gives this card the push toward purpose, mission, and decisive action." },
+          { name: "Ace of Wands", kind: "Elemental Ace", keyword: "Creation", planet: "Fire signs", teaching: "The spark of inspiration, passion, and creative life force shared by Aries, Leo, and Sagittarius." },
+          { name: "Two of Wands", kind: "Cardinal Minor", keyword: "Possibility", planet: "Mars in Aries", teaching: "The moment of deciding what you want to create and where your first brave push will go." },
+          { name: "Three of Wands", kind: "Cardinal Minor", keyword: "Expansion", planet: "Sun in Aries", teaching: "The first results of the chosen direction. Look for movement, confidence, and a wider horizon." },
+          { name: "Four of Wands", kind: "Cardinal Minor", keyword: "Celebration", planet: "Venus in Aries", teaching: "Stability after the first spark. The fire becomes a place to gather, honor progress, and keep going." }
+        ]
+      },
+      {
+        id: "taurus",
+        name: "Taurus",
+        dates: "Apr 21 - May 20",
+        element: "Earth",
+        modality: "Fixed",
+        rhythm: "Nocturnal",
+        ruler: "Venus",
+        season: "Second sign of spring.",
+        essence: "Presence, steadiness, comfort, physicality, and luxury.",
+        growth: "Cultivating abundance and gratitude in the present moment.",
+        seasonWork: "Tend the seeds planted in Aries, make space for healing, and notice what is already nourishing you.",
+        transcript: "03 Taurus.txt",
+        cards: [
+          { name: "The Hierophant", kind: "Major Arcana", keyword: "Tradition", planet: "Taurus", teaching: "Spiritual wisdom, structure, and the question of where tradition supports you or keeps you in conformity." },
+          { name: "Ace of Pentacles", kind: "Elemental Ace", keyword: "Material opportunity", planet: "Earth signs", teaching: "Time, energy, money, freedom, and grounded opportunities for tangible growth." },
+          { name: "Five of Pentacles", kind: "Fixed Minor", keyword: "Scarcity", planet: "Mercury in Taurus", teaching: "A resource check. Notice loss stories, then look for the support and abundance already nearby." },
+          { name: "Six of Pentacles", kind: "Fixed Minor", keyword: "Reciprocity", planet: "Moon in Taurus", teaching: "Giving and receiving time, energy, material support, and money with a sense of balance." },
+          { name: "Seven of Pentacles", kind: "Fixed Minor", keyword: "Evaluation", planet: "Saturn in Taurus", teaching: "Taking stock of what has been planted, what is growing, and what needs care next." }
+        ]
+      },
+      {
+        id: "gemini",
+        name: "Gemini",
+        dates: "May 21 - Jun 20",
+        element: "Air",
+        modality: "Mutable",
+        rhythm: "Diurnal",
+        ruler: "Mercury",
+        season: "Last sign of spring.",
+        essence: "Communication, new ideas, relating with others, and decisions.",
+        growth: "Shifting perceptions and rewriting stories.",
+        seasonWork: "Call in summertime energy by updating thoughts, beliefs, and the stories that shape choice.",
+        transcript: "04 Gemini.txt",
+        cards: [
+          { name: "The Lovers", kind: "Major Arcana", keyword: "Commitment", planet: "Gemini", teaching: "A choice or commitment to a person, path, job, belief, or story. Gemini asks what you are mentally committed to." },
+          { name: "Ace of Swords", kind: "Elemental Ace", keyword: "Clarity", planet: "Air signs", teaching: "Clear thought, direct perception, and the opening of the intellectual mind." },
+          { name: "Eight of Swords", kind: "Mutable Minor", keyword: "Overwhelm", planet: "Jupiter in Gemini", teaching: "Mental stuckness caused by a belief or story that is not truly binding you." },
+          { name: "Nine of Swords", kind: "Mutable Minor", keyword: "Anxiety", planet: "Mars in Gemini", teaching: "Projected worry and mental pain. Shift the story to release movement." },
+          { name: "Ten of Swords", kind: "Mutable Minor", keyword: "Finality", planet: "Sun in Gemini", teaching: "The end of a long mental struggle and the first light of a different perspective." }
+        ]
+      },
+      {
+        id: "cancer",
+        name: "Cancer",
+        dates: "Jun 21 - Jul 21",
+        element: "Water",
+        modality: "Cardinal",
+        rhythm: "Nocturnal",
+        ruler: "Moon",
+        season: "First sign of summer.",
+        essence: "Intuition, family, home, and emotions.",
+        growth: "Cultivating self-love, tuning into emotions, and tapping into intuition.",
+        seasonWork: "Slow down, replenish the spirit, and create emotional safety before moving forward.",
+        transcript: "05 Cancer.txt",
+        cards: [
+          { name: "The Chariot", kind: "Major Arcana", keyword: "Drive", planet: "Cancer", teaching: "Willpower, faith in yourself, and movement through fear or insecurity." },
+          { name: "Ace of Cups", kind: "Elemental Ace", keyword: "Blessings", planet: "Water signs", teaching: "Emotional closeness, intuition, feeling, and the opening of the heart." },
+          { name: "Two of Cups", kind: "Cardinal Minor", keyword: "Partnership", planet: "Venus in Cancer", teaching: "Two energies meeting. Connection, cooperation, and loving partnership in many forms." },
+          { name: "Three of Cups", kind: "Cardinal Minor", keyword: "Celebrate", planet: "Mercury in Cancer", teaching: "Togetherness, family, friendship, and celebration with the people who feel like home." },
+          { name: "Four of Cups", kind: "Cardinal Minor", keyword: "Comfort", planet: "Moon in Cancer", teaching: "A comfortable but closed-off emotional space. Notice the support or invitation you may not be seeing." }
+        ]
+      },
+      {
+        id: "leo",
+        name: "Leo",
+        dates: "Jul 22 - Aug 21",
+        element: "Fire",
+        modality: "Fixed",
+        rhythm: "Diurnal",
+        ruler: "Sun",
+        season: "Second sign of summer.",
+        essence: "Heart, creativity, self-worth, ambition, intimacy, and courage.",
+        growth: "Self-expression and connection with joy.",
+        seasonWork: "Enjoy, celebrate, shine, and practice being seen without shrinking.",
+        transcript: "06 Leo.txt",
+        cards: [
+          { name: "Strength", kind: "Major Arcana", keyword: "Compassion", planet: "Leo", teaching: "Fortitude through kindness, heart, self-compassion, and authentic expression." },
+          { name: "Ace of Wands", kind: "Elemental Ace", keyword: "Creation", planet: "Fire signs", teaching: "Passion, inspiration, and the opportunity to create from the heart." },
+          { name: "Five of Wands", kind: "Fixed Minor", keyword: "Competition", planet: "Saturn in Leo", teaching: "Comparison, conflict, and the shadow of needing to be on top. Shift toward collaboration." },
+          { name: "Six of Wands", kind: "Fixed Minor", keyword: "Recognition", planet: "Jupiter in Leo", teaching: "Being seen for good work. Practice standing in deserved recognition." },
+          { name: "Seven of Wands", kind: "Fixed Minor", keyword: "Courage", planet: "Mars in Leo", teaching: "Defending your creation, belief, or inner fire without letting outside voices collapse your confidence." }
+        ]
+      },
+      {
+        id: "virgo",
+        name: "Virgo",
+        dates: "Aug 22 - Sep 22",
+        element: "Earth",
+        modality: "Mutable",
+        rhythm: "Nocturnal",
+        ruler: "Mercury",
+        season: "Last sign of summer.",
+        essence: "Healing, service, efficiency, presentation, and order.",
+        growth: "Realizing self-worth.",
+        seasonWork: "Recognize your gifts, organize the harvest, and refine the process before fall begins.",
+        transcript: "07 Virgo.txt",
+        cards: [
+          { name: "The Hermit", kind: "Major Arcana", keyword: "Introspection", planet: "Virgo", teaching: "Inner guidance, wisdom, and the quiet needed to notice details, self-worth, and the next right step." },
+          { name: "Ace of Pentacles", kind: "Elemental Ace", keyword: "Material opportunity", planet: "Earth signs", teaching: "A grounded invitation into worth, material support, and practical manifestation." },
+          { name: "Eight of Pentacles", kind: "Mutable Minor", keyword: "Mastery", planet: "Sun in Virgo", teaching: "Skill-building, process, details, and refinement through careful repetition." },
+          { name: "Nine of Pentacles", kind: "Mutable Minor", keyword: "Luxury", planet: "Venus in Virgo", teaching: "Enjoying the fruits of your work, receiving abundance, and noticing earned beauty." },
+          { name: "Ten of Pentacles", kind: "Mutable Minor", keyword: "Legacy", planet: "Mercury in Virgo", teaching: "Abundance that can be shared, passed on, or used in service to the wider community." }
+        ]
+      },
+      {
+        id: "libra",
+        name: "Libra",
+        dates: "Sep 23 - Oct 22",
+        element: "Air",
+        modality: "Cardinal",
+        rhythm: "Diurnal",
+        ruler: "Venus",
+        season: "First sign of fall.",
+        essence: "Justice, balance, fairness, exchange, relationships, and harmony.",
+        growth: "Cultivating balance, fairness, and healthy relationships.",
+        seasonWork: "Choose the partnerships that matter and practice balance in exchange, love, and thought.",
+        transcript: "08 Libra.txt",
+        cards: [
+          { name: "Justice", kind: "Major Arcana", keyword: "Balance", planet: "Libra", teaching: "Karma, consequences, fairness, and the choices that restore right relationship." },
+          { name: "Ace of Swords", kind: "Elemental Ace", keyword: "Clarity", planet: "Air signs", teaching: "Clear thought and the clean perception needed for fair decisions." },
+          { name: "Two of Swords", kind: "Cardinal Minor", keyword: "Decision", planet: "Moon in Libra", teaching: "Discernment during indecision. Balance asks for a choice, not endless freezing." },
+          { name: "Three of Swords", kind: "Cardinal Minor", keyword: "Lesson", planet: "Saturn in Libra", teaching: "Pain, heartbreak, or betrayal as something the mind can integrate into future balance." },
+          { name: "Four of Swords", kind: "Cardinal Minor", keyword: "Rest", planet: "Jupiter in Libra", teaching: "Putting down the swords, taking space, and letting restoration become part of justice." }
+        ]
+      },
+      {
+        id: "scorpio",
+        name: "Scorpio",
+        dates: "Oct 23 - Nov 22",
+        element: "Water",
+        modality: "Fixed",
+        rhythm: "Nocturnal",
+        ruler: "Pluto",
+        season: "Second sign of fall.",
+        essence: "Subconscious depth, sensuality, and transformation.",
+        growth: "Shadow work and transformation.",
+        seasonWork: "Release fear of transformation, examine triggers, and let go of judgment.",
+        transcript: "09 Scorpio.txt",
+        cards: [
+          { name: "Death", kind: "Major Arcana", keyword: "Rebirth", planet: "Scorpio", teaching: "Deep, lasting change that reshapes who you are. The caterpillar does not go back after the cocoon." },
+          { name: "Ace of Cups", kind: "Elemental Ace", keyword: "Blessings", planet: "Water signs", teaching: "The shared water-sign opening into feeling, intuition, and emotional healing." },
+          { name: "Five of Cups", kind: "Fixed Minor", keyword: "Grief", planet: "Mars in Scorpio", teaching: "Loss, sadness, perceived loss, and the shadow-work invitation to alchemize pain." },
+          { name: "Six of Cups", kind: "Fixed Minor", keyword: "Past", planet: "Sun in Scorpio", teaching: "Reflection, inner child work, and the search for where old patterns began." },
+          { name: "Seven of Cups", kind: "Fixed Minor", keyword: "Options", planet: "Venus in Scorpio", teaching: "Indecision, desire, and the need to go deeper than surface-level wants." }
+        ]
+      },
+      {
+        id: "sagittarius",
+        name: "Sagittarius",
+        dates: "Nov 23 - Dec 21",
+        element: "Fire",
+        modality: "Mutable",
+        rhythm: "Diurnal",
+        ruler: "Jupiter",
+        season: "Last sign of fall.",
+        essence: "Knowledge, expansion, movement, travel, and new information.",
+        growth: "Aligning with dreams and expansion.",
+        seasonWork: "Learn, grow, travel in body or mind, and shift from fall into winter with a bigger vision.",
+        transcript: "10 Sagittarius.txt",
+        cards: [
+          { name: "Temperance", kind: "Major Arcana", keyword: "Moderation", planet: "Sagittarius", teaching: "Equilibrium and right measure. Big vision needs moderation so expansion remains aligned." },
+          { name: "Ace of Wands", kind: "Elemental Ace", keyword: "Creation", planet: "Fire signs", teaching: "The opportunity to create the life of your dreams through fire, passion, and inspired learning." },
+          { name: "Eight of Wands", kind: "Mutable Minor", keyword: "Momentum", planet: "Mercury in Sagittarius", teaching: "Fast action after learning or making a key change. The fire catches." },
+          { name: "Nine of Wands", kind: "Mutable Minor", keyword: "Protection", planet: "Moon in Sagittarius", teaching: "Walls, defensiveness, and the question of whether protection is truly protecting you." },
+          { name: "Ten of Wands", kind: "Mutable Minor", keyword: "Burden", planet: "Saturn in Sagittarius", teaching: "Too much responsibility around your creation. Build systems, share weight, and persevere with support." }
+        ]
+      },
+      {
+        id: "capricorn",
+        name: "Capricorn",
+        dates: "Dec 22 - Jan 19",
+        element: "Earth",
+        modality: "Cardinal",
+        rhythm: "Nocturnal",
+        ruler: "Saturn",
+        season: "First sign of winter.",
+        essence: "Structure, stability, logic, work, and finances.",
+        growth: "Aligning with the soul's purpose.",
+        seasonWork: "Celebrate progress, slow down, and clarify goals and vision.",
+        transcript: "11 Capricorn.txt",
+        cards: [
+          { name: "The Devil", kind: "Major Arcana", keyword: "Bondage", planet: "Capricorn", teaching: "Stuckness, addiction, and the trap of letting success or work consume the whole life." },
+          { name: "Ace of Pentacles", kind: "Elemental Ace", keyword: "Material opportunity", planet: "Earth signs", teaching: "Money, time, energy, business, work, and material-world openings." },
+          { name: "Two of Pentacles", kind: "Cardinal Minor", keyword: "Prioritizing", planet: "Jupiter in Capricorn", teaching: "Choosing what matters most and ordering work by values, not pressure." },
+          { name: "Three of Pentacles", kind: "Cardinal Minor", keyword: "Collaboration", planet: "Mars in Capricorn", teaching: "Teamwork for big goals. Ask what is missing in the team and who belongs in the build." },
+          { name: "Four of Pentacles", kind: "Cardinal Minor", keyword: "Security", planet: "Sun in Capricorn", teaching: "Sensible decisions, holding resources, and finding the middle between scarcity and careless spending." }
+        ]
+      },
+      {
+        id: "aquarius",
+        name: "Aquarius",
+        dates: "Jan 20 - Feb 18",
+        element: "Air",
+        modality: "Fixed",
+        rhythm: "Diurnal",
+        ruler: "Uranus",
+        season: "Second sign of winter.",
+        essence: "Collaboration, mentality, community, society, and authenticity.",
+        growth: "Aligning with the soul's truth and authenticity.",
+        seasonWork: "Work with the collective, question stale systems, and build structures that serve more people.",
+        transcript: "12 Aquarius.txt",
+        cards: [
+          { name: "The Star", kind: "Major Arcana", keyword: "Hope", planet: "Aquarius", teaching: "Hope after hardship, especially when systems feel broken. Change is possible." },
+          { name: "Ace of Swords", kind: "Elemental Ace", keyword: "Clarity", planet: "Air signs", teaching: "Clear thinking about consequences, the collective, and what comes next." },
+          { name: "Five of Swords", kind: "Fixed Minor", keyword: "Tyranny", planet: "Venus in Aquarius", teaching: "Power-over dynamics and structures that benefit some instead of all." },
+          { name: "Six of Swords", kind: "Fixed Minor", keyword: "Escape", planet: "Mercury in Aquarius", teaching: "Leaving behind systems and situations that do not work, then moving toward a better future." },
+          { name: "Seven of Swords", kind: "Fixed Minor", keyword: "Trickery", planet: "Moon in Aquarius", teaching: "Deception, hidden dynamics, or avoidance that asks for clear collective truth." }
+        ]
+      },
+      {
+        id: "pisces",
+        name: "Pisces",
+        dates: "Feb 19 - Mar 20",
+        element: "Water",
+        modality: "Mutable",
+        rhythm: "Nocturnal",
+        ruler: "Neptune",
+        season: "Last sign of winter and end of the zodiac year.",
+        essence: "Flexibility, subconscious, dreams, feelings, and psychic ability.",
+        growth: "Learning how to go with the flow.",
+        seasonWork: "End the year, release what does not work, dream forward, and return to flow before Aries begins again.",
+        transcript: "13 Pisces.txt",
+        cards: [
+          { name: "The Moon", kind: "Major Arcana", keyword: "Illusion", planet: "Pisces", teaching: "Dreamland, mystery, intuition, subconscious material, and the fear that appears when things are not clear." },
+          { name: "Ace of Cups", kind: "Elemental Ace", keyword: "Blessings", planet: "Water signs", teaching: "The opening into feeling, intuition, subconscious wisdom, and emotional fulfillment." },
+          { name: "Eight of Cups", kind: "Mutable Minor", keyword: "Departing", planet: "Saturn in Pisces", teaching: "Walking away from what no longer works at the end of a cycle." },
+          { name: "Nine of Cups", kind: "Mutable Minor", keyword: "Contentment", planet: "Jupiter in Pisces", teaching: "Fulfillment after release. Happiness that comes when what does not fit has been left behind." },
+          { name: "Ten of Cups", kind: "Mutable Minor", keyword: "Bliss", planet: "Mars in Pisces", teaching: "Idealistic emotional fulfillment, dreams, family, love, and the vision of what comes next." }
+        ]
+      }
+    ];
+
+    const INTRO = {
+      id: "intro",
+      name: "Intro",
+      transcript: "01 Intro.txt",
+      essence: "Tarot and astrology are taught as complementary systems for personal and spiritual growth.",
+      growth: "Use the astrological season, planet, modality, element, and card correspondence as clues, then build your own relationship to the cards.",
+      prompts: [
+        "What season does this card feel like: spring, summer, fall, or winter?",
+        "What personal or spiritual growth theme does this sign ask me to practice?",
+        "What card meaning is Sunny offering, and what meaning is becoming true for me?",
+        "How does this card help me ask a deeper question in a reading?"
+      ]
+    };
+
+    const EXTRA_LESSONS = [
+      {
+        id: "court-cards",
+        name: "Court Cards",
+        transcript: "14 Court Cards.txt",
+        essence: "Court cards are the personalities of the deck. They can represent a person, a personality type, a trait, or an invitation to step into a quality.",
+        growth: "Use the zodiac family and court rank as clues, then feel into whether the card is naming the querent, another person, or a trait being developed.",
+        prompts: [
+          "Is this court card representing a person, a personality trait, or an invitation?",
+          "Which sun, moon, or rising sign connection helps me remember this card?",
+          "What rank does this feel like: curious page, active knight, embodied queen, or mature king?",
+          "How does the element change the personality?"
+        ]
+      },
+      {
+        id: "planetary-majors",
+        name: "Other Major Arcana",
+        transcript: "15 Other Major Arcana .txt",
+        essence: "Some major arcana cards do not map to zodiac signs, but they do carry planetary influences.",
+        growth: "Use the planet as the interpretive clue: Uranus awakens, Mercury communicates, the Moon intuits, Venus creates beauty, Jupiter expands, Neptune shifts perspective, Mars shakes things up, Pluto evolves, and Saturn completes cycles.",
+        prompts: [
+          "What planet is speaking through this major arcana card?",
+          "Does the card feel like a beginning, manifestation, intuition, beauty, change, suspension, shake-up, illumination, evolution, or completion?",
+          "How does the planetary meaning sharpen the reading?",
+          "What association am I personally making with this card and planet?"
+        ]
+      },
+      {
+        id: "seasonal-spreads",
+        name: "Seasonal Spreads",
+        transcript: "16 Seasonal Spreads & Readings .txt",
+        essence: "Seasonal tarot spreads channel the current collective energy and ask focused questions about personal growth and development during each astrological season.",
+        growth: "Use the personal and spiritual growth theme for each season to create focused questions. Pull cards at the beginning of each season to tap into that energy for yourself or with clients.",
+        prompts: [
+          "What is the personal and spiritual growth theme for this season?",
+          "What questions help me tap into this seasonal energy?",
+          "How can I use these spreads with clients at the beginning of each season?",
+          "What patterns do I notice across seasons in my readings?"
+        ]
+      }
+    ];
+
+    const PLANET_CARDS = [
+      { name: "The Fool", planet: "Uranus", keyword: "Awakening, change, revolution, innovation", teaching: "The beginning of a new journey, awakening, change, or revolution in one's life." },
+      { name: "The Magician", planet: "Mercury", keyword: "Communication, individual mind, intellect, reason", teaching: "Manifestation as a mental and communicative act: using all available tools to communicate with the universe." },
+      { name: "The High Priestess", planet: "Moon", keyword: "Subconscious, intuition, emotional self, magic", teaching: "Trusting intuition, digging into the intuitive process, and honoring the deep inner knowing of the Moon." },
+      { name: "The Empress", planet: "Venus", keyword: "Beauty, love, pleasure, material prosperity", teaching: "Creation, beauty, abundance, love, and material prosperity embodied through Venus." },
+      { name: "Wheel of Fortune", planet: "Jupiter", keyword: "Expansive growth, higher thinking, luck, abundance", teaching: "Cycles and change, often read as a pleasant change coming, expanded by Jupiter's luck and abundance." },
+      { name: "The Hanged Man", planet: "Neptune", keyword: "Oneness, dreams, hope, creativity, fantasy", teaching: "Suspension and a new point of view. Neptune brings dreaminess and a new way of thinking." },
+      { name: "The Tower", planet: "Mars", keyword: "Warrior energy, vital energy, action, sexuality, ambition", teaching: "A huge shake-up when change has been resisted. Mars brings vital force, action, and the crumbling of what cannot stay." },
+      { name: "The Sun", planet: "Sun", keyword: "Ego, identity, authenticity, pride, expression", teaching: "Illumination, clarity, joy, and happiness. A bright expression of solar energy." },
+      { name: "Judgement", planet: "Pluto", keyword: "Letting go, power, transformation, psyche", teaching: "Evolution, not just consequence. A call into a higher way of thinking, living, and transforming." },
+      { name: "The World", planet: "Saturn", keyword: "Boundaries, time, initiation, cycles, responsibility", teaching: "Completion of a full cycle and readiness to begin again. Saturn highlights cycles, responsibility, and initiation." }
+    ];
+
+    const COURTS = [
+      {
+        group: "Fire Court",
+        signs: "Aries, Leo, Sagittarius",
+        suit: "Wands",
+        essence: "Drive, passion, creativity, movement, and spiritual will.",
+        traits: "Aries can be fiery, passionate, bold, courageous, initiatory, impatient, or domineering. Leo brings heart, charm, energy, generosity, and enthusiasm. Sagittarius is freedom-seeking, idealistic, adventurous, and funny.",
+        cards: [
+          { name: "Page of Wands", keyword: "Curiosity", teaching: "A younger or beginning personality curious about a new passion, invention, business venture, or creation." },
+          { name: "Knight of Wands", keyword: "Bravery", teaching: "Brave, action-oriented movement on a passion. The curiosity has become forward motion." },
+          { name: "Queen of Wands", keyword: "Creative power", teaching: "The witch of the deck: charismatic, in charge, creative, and aware that yeses and noes create her life." },
+          { name: "King of Wands", keyword: "Inspiration", teaching: "A leader or CEO energy who inspires, speaks, creates, helps publicly, and has reached the dream." }
+        ]
+      },
+      {
+        group: "Water Court",
+        signs: "Cancer, Scorpio, Pisces",
+        suit: "Cups",
+        essence: "Emotion, intuition, empathy, creativity, and energetic sensitivity.",
+        traits: "Cancer is nurturing, sensitive, compassionate, loyal, creative, moody, and charming. Scorpio is passionate, persistent, strategic, mysterious, magical, and interested in depth. Pisces is imaginative, creative, intuitive, romantic, empathetic, emotional, and impressionable.",
+        cards: [
+          { name: "Page of Cups", keyword: "Idealism", teaching: "Dreamy, Pisces-like, pie-in-the-sky energy. Lots of feeling, imagining, and studying before action." },
+          { name: "Knight of Cups", keyword: "Charm", teaching: "Romantic, loving, and willing to put action behind feeling and emotional connection." },
+          { name: "Queen of Cups", keyword: "Compassion", teaching: "Loving, kind, emotionally generous, and deeply connected to compassion." },
+          { name: "King of Cups", keyword: "Wisdom", teaching: "Wise emotional maturity: understands emotion, connects with others, and keeps feelings in check." }
+        ]
+      },
+      {
+        group: "Air Court",
+        signs: "Gemini, Libra, Aquarius",
+        suit: "Swords",
+        essence: "Thought, communication, stories, ideas, and perception.",
+        traits: "Gemini is communicative, chatty, playful, witty, and curious. Libra seeks justice, balance, charm, and persuasion. Aquarius is unique, unconventional, humanitarian, altruistic, loyal, and sometimes impulsive.",
+        cards: [
+          { name: "Page of Swords", keyword: "Inquisitive", teaching: "Big ideas, intellectual curiosity, and many light bulbs without much action yet." },
+          { name: "Knight of Swords", keyword: "Impulsive", teaching: "Fast-moving air-on-air energy: energetic, impulsive, and not especially grounded." },
+          { name: "Queen of Swords", keyword: "Honest", teaching: "Direct, honest, logical, and willing to tell it like it is." },
+          { name: "King of Swords", keyword: "Strategy", teaching: "Strategic intelligence, communication, and knowing which pieces need to be put in place." }
+        ]
+      },
+      {
+        group: "Earth Court",
+        signs: "Taurus, Virgo, Capricorn",
+        suit: "Pentacles",
+        essence: "Body, work, money, time, resources, and grounded application.",
+        traits: "Taurus is comfort-seeking, pleasure-seeking, down to earth, luxurious, reliable, and stubborn. Virgo is humble, kind, sympathetic, methodical, detail-oriented, hard-working, responsible, and sometimes picky or perfectionistic. Capricorn is hard-working, direct, honest, loyal, persistent, ambitious, organized, practical, and can put work ahead of everything else.",
+        cards: [
+          { name: "Page of Pentacles", keyword: "Studiousness", teaching: "Studying, reading, learning the craft, and preparing before action." },
+          { name: "Knight of Pentacles", keyword: "Dependable", teaching: "The slowest knight: step-by-step, grounded, reliable, and consistent." },
+          { name: "Queen of Pentacles", keyword: "Comforting", teaching: "Surrounded by nature and abundance, she comforts herself and others with grounded care." },
+          { name: "King of Pentacles", keyword: "Knowledgeable", teaching: "Grounded CEO energy: mastered the craft, confident in skill, and able to pass on knowledge or legacy." }
+        ]
+      }
+    ];
+
+    const SPREADS = [
+      {
+        season: "Spring",
+        sign: null,
+        id: "spring-equinox",
+        name: "Spring Equinox",
+        cards: 4,
+        questions: [
+          "What is blooming this new zodiac year? (Goal)",
+          "What are you ready to let go of? (Spring cleaning!)",
+          "What seeds am I ready to plant?",
+          "What am I ready to embrace?"
+        ]
+      },
+      {
+        season: "Spring",
+        sign: "aries",
+        id: "spread-aries",
+        name: "Aries Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What is blocking me from my soul's purpose?",
+          "How can I align with my soul's purpose?",
+          "What can I embrace to drive toward this dream?"
+        ]
+      },
+      {
+        season: "Spring",
+        sign: "taurus",
+        id: "spread-taurus",
+        name: "Taurus Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What is blocking me from abundance?",
+          "How can I stay grounded this season?",
+          "What do I need to feel abundant?"
+        ]
+      },
+      {
+        season: "Spring",
+        sign: "gemini",
+        id: "spread-gemini",
+        name: "Gemini Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What stories are getting in my way?",
+          "What stories would be more empowering?",
+          "What would be helpful in connecting with others this season?"
+        ]
+      },
+      {
+        season: "Spring",
+        sign: null,
+        id: "progress-dream",
+        name: "Progress Toward My Dream",
+        cards: 3,
+        questions: [
+          "What is my current energy in the manifesting process?",
+          "What barriers or resistance do I need to release to move forward?",
+          "What opportunities are ripe for transformation this spring?"
+        ]
+      },
+      {
+        season: "Summer",
+        sign: null,
+        id: "summer-solstice",
+        name: "Summer Solstice",
+        cards: 4,
+        questions: [
+          "What is about to bloom and prosper in my life?",
+          "What areas of my life can I conserve my energy?",
+          "What energy can I embrace to bring it to fruition?",
+          "What helps me feel connected and joyful?"
+        ]
+      },
+      {
+        season: "Summer",
+        sign: "cancer",
+        id: "spread-cancer",
+        name: "Cancer Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What helps me feel safe?",
+          "What helps me process my emotions?",
+          "How can I connect with and develop my intuition?"
+        ]
+      },
+      {
+        season: "Summer",
+        sign: "leo",
+        id: "spread-leo",
+        name: "Leo Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What is my strength?",
+          "How can I embody my bravery?",
+          "What helps me step into authenticity?"
+        ]
+      },
+      {
+        season: "Summer",
+        sign: "virgo",
+        id: "spread-virgo",
+        name: "Virgo Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What is my spiritual gift?",
+          "How do I share that gift with the world?",
+          "What helps me know that I am worthy?"
+        ]
+      },
+      {
+        season: "Summer",
+        sign: null,
+        id: "manifesting-dream",
+        name: "Manifesting My Dream",
+        cards: 3,
+        questions: [
+          "What energies surround me now that may support the manifestation of my dream?",
+          "What do I need to consider for greater clarity for my dream?",
+          "What action step can I take right now to align me with my dream?"
+        ]
+      },
+      {
+        season: "Fall",
+        sign: null,
+        id: "fall-equinox",
+        name: "Fall Equinox",
+        cards: 4,
+        questions: [
+          "What has come to fruition and is now ready to be harvested?",
+          "In what ways can I use this harvest for myself?",
+          "How can I give some to others?",
+          "What am I being encouraged to let go of?"
+        ]
+      },
+      {
+        season: "Fall",
+        sign: "libra",
+        id: "spread-libra",
+        name: "Libra Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What relationships am I ready to walk away from?",
+          "What can I focus on to cultivate healthy relationships?",
+          "What am I grateful for this season?"
+        ]
+      },
+      {
+        season: "Fall",
+        sign: "scorpio",
+        id: "spread-scorpio",
+        name: "Scorpio Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What patterns have been getting in the way of me living my best life?",
+          "What can I focus on to release this pattern?",
+          "What energy will help me step into my power?"
+        ]
+      },
+      {
+        season: "Fall",
+        sign: "sagittarius",
+        id: "spread-sagittarius",
+        name: "Sagittarius Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "How can I remain grounded this season?",
+          "What is calling for exploration?",
+          "What would help me align with this dream?"
+        ]
+      },
+      {
+        season: "Fall",
+        sign: null,
+        id: "abundant-harvest",
+        name: "Abundant Harvest",
+        cards: 3,
+        questions: [
+          "What accomplishments can I take pride in and celebrate from this past year?",
+          "What personal qualities and strengths have contributed to my success and deserve recognition?",
+          "What valuable insights can I carry forward from my success into the next phase of my journey?"
+        ]
+      },
+      {
+        season: "Winter",
+        sign: null,
+        id: "winter-solstice",
+        name: "Winter Solstice",
+        cards: 4,
+        questions: [
+          "How have I evolved over the course of the last year?",
+          "What blessings are showing up for me?",
+          "What am I grateful for?",
+          "What can help me invite divine rest into my life?"
+        ]
+      },
+      {
+        season: "Winter",
+        sign: "capricorn",
+        id: "spread-capricorn",
+        name: "Capricorn Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "How can I celebrate myself and my successes?",
+          "What is my why?",
+          "What energy could help me maintain focus of my why while chasing my dreams?"
+        ]
+      },
+      {
+        season: "Winter",
+        sign: "aquarius",
+        id: "spread-aquarius",
+        name: "Aquarius Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What can I do for the collective?",
+          "Who am I?",
+          "Who am I not?"
+        ]
+      },
+      {
+        season: "Winter",
+        sign: "pisces",
+        id: "spread-pisces",
+        name: "Pisces Season",
+        cards: 4,
+        questions: [
+          "My current energy this season",
+          "What helps me tap into my intuition?",
+          "How can I trust my intuition?",
+          "How can I trust the flow?"
+        ]
+      },
+      {
+        season: "Winter",
+        sign: null,
+        id: "seeds-winter",
+        name: "Seeds of Winter Reflection",
+        cards: 3,
+        questions: [
+          "What intentions can I plant during this season of rest and introspection to manifest in the coming year?",
+          "How can I find peace and stillness within myself to enhance my energy during this quiet season?",
+          "What unexpected blessings or opportunities might arise from the stillness and integration of this season?"
+        ]
+      }
+    ];
+
+    const SYSTEM = {
+      elements: {
+        Fire: "Passionate, energetic, creative, vital, moving, willful, and quick to act.",
+        Earth: "Grounded application, steadiness, practicality, determination, and life force.",
+        Air: "Intelligence, thought, ideas, manifestation, lightness, and curiosity.",
+        Water: "Empathy, psychic ability, emotional connection, deep feeling, sensitivity, and creativity."
+      },
+      modalities: {
+        Cardinal: "Beginning of the season, initiatory, direct, and spark-like. Corresponds with twos, threes, and fours.",
+        Fixed: "Middle of the season, maintaining, devoted, loyal, and less flexible. Corresponds with fives, sixes, and sevens.",
+        Mutable: "End of the season, adaptable, multitasking, shifting, improving, and updating. Corresponds with eights, nines, and tens."
+      },
+      rhythms: {
+        Diurnal: "Active, direct, expressive, and outward-moving.",
+        Nocturnal: "Restful, receiving, reflective, and inward-moving."
+      }
+    };
+
+    let state = loadState();
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return baseState();
+        return Object.assign(baseState(), JSON.parse(raw));
+      } catch (error) {
+        return baseState();
+      }
+    }
+
+    function baseState() {
+      return {
+        activeTab: "overview",
+        activeSign: "aries",
+        activeLesson: "intro",
+        completed: {},
+        notes: {},
+        readings: [],
+        libraryQuery: "",
+        libraryFilter: "All",
+        leftFilter: "left",
+        currentDraw: null,
+        activeSpreadSeason: "Spring",
+        activeSpread: "spring-equinox",
+        spreadReadings: []
+      };
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateStats();
+    }
+
+    function signById(id) {
+      return SIGNS.find(sign => sign.id === id) || SIGNS[0];
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function cardMark(name) {
+      return name
+        .replace(/^The\s+/i, "")
+        .replace(/Ace of /i, "A ")
+        .replace(/Two of /i, "2 ")
+        .replace(/Three of /i, "3 ")
+        .replace(/Four of /i, "4 ")
+        .replace(/Five of /i, "5 ")
+        .replace(/Six of /i, "6 ")
+        .replace(/Seven of /i, "7 ")
+        .replace(/Eight of /i, "8 ")
+        .replace(/Nine of /i, "9 ")
+        .replace(/Ten of /i, "10 ")
+        .split(/\s+/)
+        .map(part => part[0])
+        .join("")
+        .slice(0, 3)
+        .toUpperCase();
+    }
+
+    function noteKey(scope, id) {
+      return `${scope}:${id}`;
+    }
+
+    function noteValue(key) {
+      return state.notes[key] || "";
+    }
+
+    function noteBox(key, label, rows = 4) {
+      return `
+        <label>
+          <span>${escapeHtml(label)}</span>
+          <textarea rows="${rows}" data-note="${escapeHtml(key)}">${escapeHtml(noteValue(key))}</textarea>
+        </label>
+      `;
+    }
+
+    function allLessonIds() {
+      return [INTRO.id].concat(SIGNS.map(sign => sign.id), EXTRA_LESSONS.map(lesson => lesson.id));
+    }
+
+    function completedCount() {
+      return allLessonIds().filter(id => state.completed[id]).length;
+    }
+
+    function noteCount() {
+      return Object.values(state.notes).filter(value => String(value || "").trim()).length;
+    }
+
+    function allSignCards() {
+      return SIGNS.flatMap(sign => sign.cards.map(card => ({
+        ...card,
+        id: `sign:${sign.id}:${card.name}`,
+        category: card.kind.includes("Major") ? "Major" : card.kind.includes("Ace") ? "Ace" : "Minor",
+        signId: sign.id,
+        signName: sign.name,
+        element: sign.element,
+        modality: sign.modality,
+        rhythm: sign.rhythm,
+        ruler: sign.ruler,
+        lessonId: sign.id,
+        noteKey: noteKey("card", `${sign.id}:${card.name}`)
+      })));
+    }
+
+    function allCourtCards() {
+      return COURTS.flatMap(family => family.cards.map(card => ({
+        ...card,
+        id: `court:${card.name}`,
+        category: "Court",
+        kind: "Court Card",
+        family: family.group,
+        suit: family.suit,
+        signs: family.signs,
+        signName: family.group,
+        element: family.group.replace(" Court", ""),
+        modality: "Personality",
+        rhythm: "Court",
+        ruler: family.suit,
+        planet: family.signs,
+        traits: family.traits,
+        lessonId: "court-cards",
+        noteKey: noteKey("court-card", card.name)
+      })));
+    }
+
+    function allPlanetCards() {
+      return PLANET_CARDS.map(card => ({
+        ...card,
+        id: `planet:${card.name}`,
+        category: "Planet",
+        kind: "Planetary Major",
+        signName: "Planetary Major",
+        element: "Planet",
+        modality: "Major Arcana",
+        rhythm: "Planet",
+        ruler: card.planet,
+        planet: card.planet,
+        lessonId: "planetary-majors",
+        noteKey: noteKey("planet", card.name)
+      }));
+    }
+
+    function allLibraryCards() {
+      const raw = allSignCards().concat(allCourtCards(), allPlanetCards());
+      const seen = new Set();
+      const unique = raw.filter(card => {
+        if (seen.has(card.name)) return false;
+        seen.add(card.name);
+        return true;
+      });
+      const suitOrder = { "Major": 0, "Planet": 0, "Wands": 1, "Cups": 2, "Swords": 3, "Pentacles": 4 };
+      function suitOf(card) {
+        if (card.category === "Major" || card.category === "Planet") return "Major";
+        const name = card.name;
+        if (name.includes("Wands")) return "Wands";
+        if (name.includes("Cups")) return "Cups";
+        if (name.includes("Swords")) return "Swords";
+        if (name.includes("Pentacles")) return "Pentacles";
+        return "Major";
+      }
+      const majorOrder = [
+        "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
+        "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
+        "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
+        "The Devil", "The Tower", "The Star", "The Moon", "The Sun", "Judgement", "The World"
+      ];
+      const pipRank = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Page", "Knight", "Queen", "King"];
+      function rankOf(card) {
+        const suit = suitOf(card);
+        if (suit === "Major") {
+          const idx = majorOrder.indexOf(card.name);
+          return idx >= 0 ? idx : 99;
+        }
+        for (let i = 0; i < pipRank.length; i++) {
+          if (card.name.startsWith(pipRank[i])) return i;
+        }
+        return 99;
+      }
+      unique.sort((a, b) => {
+        const sa = suitOrder[suitOf(a)] || 0;
+        const sb = suitOrder[suitOf(b)] || 0;
+        if (sa !== sb) return sa - sb;
+        return rankOf(a) - rankOf(b);
+      });
+      return unique;
+    }
+
+    function allLessons() {
+      return [{ id: INTRO.id, name: INTRO.name, type: "intro" }]
+        .concat(SIGNS.map(sign => ({ id: sign.id, name: sign.name, type: "sign" })))
+        .concat(EXTRA_LESSONS.map(lesson => ({ id: lesson.id, name: lesson.name, type: "extra" })));
+    }
+
+    function selectedLesson() {
+      const id = state.activeLesson || "intro";
+      if (id === "intro") return { type: "intro", data: INTRO };
+      const sign = SIGNS.find(item => item.id === id);
+      if (sign) return { type: "sign", data: sign };
+      const extra = EXTRA_LESSONS.find(item => item.id === id);
+      if (extra) return { type: "extra", data: extra };
+      return { type: "intro", data: INTRO };
+    }
+
+    function updateStats() {
+      const total = allLessonIds().length;
+      const done = completedCount();
+      const notes = noteCount();
+      const readings = state.readings.length + (state.spreadReadings || []).length;
+      const circ = 119.4;
+
+      document.getElementById("stat-lessons").textContent = `${done}`;
+      document.getElementById("stat-notes").textContent = String(notes);
+      document.getElementById("stat-readings").textContent = String(readings);
+
+      const lessonRing = document.getElementById("ring-lessons");
+      if (lessonRing) lessonRing.style.strokeDashoffset = String(circ - (circ * done / total));
+
+      const notesRing = document.getElementById("ring-notes");
+      if (notesRing) {
+        const noteMax = Math.max(notes, total);
+        notesRing.style.strokeDashoffset = String(circ - (circ * Math.min(notes, noteMax) / noteMax));
+      }
+
+      const readingsRing = document.getElementById("ring-readings");
+      if (readingsRing) {
+        const readMax = Math.max(readings, 10);
+        readingsRing.style.strokeDashoffset = String(circ - (circ * Math.min(readings, readMax) / readMax));
+      }
+    }
+
+    function renderTabs() {
+      document.getElementById("tabs").innerHTML = TABS.map(tab => `
+        <button class="tab" data-ico="${tab.ico}" data-action="tab" data-tab="${tab.id}" data-active="${state.activeTab === tab.id}">
+          ${tab.label}
+        </button>
+      `).join("");
+    }
+
+    function render() {
+      if (!TABS.some(tab => tab.id === state.activeTab)) {
+        state.activeTab = "overview";
+      }
+      if (!allLessons().some(lesson => lesson.id === state.activeLesson)) {
+        state.activeLesson = "intro";
+      }
+      renderTabs();
+      updateStats();
+      const app = document.getElementById("app");
+      const renderers = {
+        overview: renderOverview,
+        library: renderLibrary,
+        spreads: renderSpreads,
+        lab: renderLab,
+        notes: renderNotes
+      };
+      app.innerHTML = (renderers[state.activeTab] || renderOverview)();
+    }
+
+    function signButtons() {
+      return `<div class="sign-strip">${SIGNS.map(sign => `
+        <button class="select-button" data-action="select-sign" data-sign="${sign.id}" data-active="${state.activeSign === sign.id}">
+          <span class="mark"></span>${sign.name}
+        </button>
+      `).join("")}</div>`;
+    }
+
+    function lessonProgressBlock() {
+      const count = completedCount();
+      const total = allLessonIds().length;
+      const percent = Math.round((count / total) * 100);
+      return `
+        <div class="progress-row">
+          <div class="section-head">
+            <div class="copy">
+              <h3>Study Progress</h3>
+              <p class="mini">${count} of ${total} lessons marked complete</p>
+            </div>
+            <strong>${percent}%</strong>
+          </div>
+          <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
+        </div>
+      `;
+    }
+
+    function lessonCheck(id) {
+      const done = Boolean(state.completed[id]);
+      return `
+        <label class="checkline" data-done="${done ? "true" : "false"}">
+          <input type="checkbox" data-action="toggle-complete" data-complete="${id}" ${done ? "checked" : ""}>
+          <span>${done ? "Finished" : "Mark finished"}</span>
+        </label>
+      `;
+    }
+
+    function renderOverview() {
+      const lesson = selectedLesson();
+      return `
+        <div class="view">
+          <section class="study-shell">
+            <aside class="lesson-rail">
+              <div class="rail-head">
+                <div style="display:flex;justify-content:space-between;align-items:baseline">
+                  <h4>Lessons</h4>
+                  <span class="mini">${Math.round((completedCount() / allLessonIds().length) * 100)}%</span>
+                </div>
+                ${lessonProgressBlock()}
+              </div>
+              <div class="lesson-list">
+                ${renderLessonButtons()}
+              </div>
+              <div class="button-row" style="margin-top:6px">
+                <button class="btn primary" style="flex:1" data-action="tab" data-tab="library">Card Library</button>
+                <button class="btn" style="flex:1" data-action="tab" data-tab="lab">Reading Lab</button>
+              </div>
+            </aside>
+            <div class="lesson-stage">
+              ${renderSelectedLesson(lesson)}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderLessonButtons() {
+      return allLessons().map(lesson => `
+        <button class="lesson-button" data-action="select-lesson" data-lesson="${lesson.id}" data-active="${state.activeLesson === lesson.id}" data-done="${state.completed[lesson.id] ? "true" : "false"}">
+          <span class="lesson-dot" data-done="${state.completed[lesson.id] ? "true" : "false"}"></span>
+          <span>
+            <strong>${escapeHtml(lesson.name)}</strong>
+            <em>${lesson.type === "sign" ? "Zodiac lesson" : lesson.type === "extra" ? "Reference lesson" : "Start here"}</em>
+          </span>
+        </button>
+      `).join("");
+    }
+
+    function renderSelectedLesson(lesson) {
+      if (lesson.type === "sign") return renderSignDetail(lesson.data, false);
+      if (lesson.type === "extra") return renderExtraLessonDetail(lesson.data);
+      return renderIntroLesson();
+    }
+
+    function renderIntroLesson() {
+      return `
+        <section class="surface lesson-focus">
+          <div class="section-head">
+            <div class="copy">
+              <div class="kicker">Start Here</div>
+              <h2>The Course Lens</h2>
+              <p class="muted">${escapeHtml(INTRO.essence)}</p>
+            </div>
+            ${lessonCheck(INTRO.id, "Intro")}
+          </div>
+          <div class="layout-3">
+            <div class="mini-card"><strong>Core Practice</strong><p>${escapeHtml(INTRO.growth)}</p></div>
+            <div class="mini-card"><strong>Seasonal Reading</strong><p>Use season, element, modality, rhythm, planet, and tarot card together as interpretive clues.</p></div>
+            <div class="mini-card"><strong>Student Rule</strong><p>Build from Sunny's meanings, then record what the card begins to mean for you.</p></div>
+          </div>
+          <div style="margin-top:14px">${noteBox(noteKey("lesson", INTRO.id), "Intro notes", 5)}</div>
+          <ul class="prompt-list" style="margin-top:14px">
+            ${INTRO.prompts.map(prompt => `<li>${escapeHtml(prompt)}</li>`).join("")}
+          </ul>
+        </section>
+      `;
+    }
+
+    function renderExtraLessonDetail(lesson) {
+      const relatedCards = lesson.id === "court-cards" ? allCourtCards() : allPlanetCards();
+      return `
+        <section class="surface lesson-focus">
+          <div class="section-head">
+            <div class="copy">
+              <div class="kicker">Reference Lesson</div>
+              <h2>${escapeHtml(lesson.name)}</h2>
+              <p class="muted">${escapeHtml(lesson.essence)}</p>
+            </div>
+            ${lessonCheck(lesson.id, lesson.name)}
+          </div>
+          <div class="mini-card">
+            <strong>Lesson Lens</strong>
+            <p>${escapeHtml(lesson.growth)}</p>
+          </div>
+          <ul class="prompt-list" style="margin-top:14px">
+            ${lesson.prompts.map(prompt => `<li>${escapeHtml(prompt)}</li>`).join("")}
+          </ul>
+          <div style="margin-top:14px">${noteBox(noteKey("lesson", lesson.id), `${lesson.name} notes`, 5)}</div>
+          <div class="library-results compact-library" style="margin-top:14px">
+            ${relatedCards.map(card => renderLibraryCard(card, true)).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSignDetail(sign, compact = false) {
+      return `
+        <section class="surface" id="sign-${sign.id}">
+          <div class="section-head">
+            <div class="copy">
+              <div class="kicker">Zodiac Lesson</div>
+              <h2>${escapeHtml(sign.name)} Energy</h2>
+              <p class="muted">${escapeHtml(sign.essence)}</p>
+            </div>
+            ${lessonCheck(sign.id, sign.name)}
+          </div>
+          <div class="badge-row">
+            <span class="badge ${sign.element.toLowerCase()}">${escapeHtml(sign.element)}</span>
+            <span class="badge">${escapeHtml(sign.modality)}</span>
+            <span class="badge">${escapeHtml(sign.rhythm)}</span>
+            <span class="badge">${escapeHtml(sign.ruler)}</span>
+            <span class="badge">${escapeHtml(sign.dates)}</span>
+          </div>
+          <div class="layout-3" style="margin-top:14px">
+            <div class="mini-card"><strong>Personal Growth</strong><p>${escapeHtml(sign.growth)}</p></div>
+            <div class="mini-card"><strong>Seasonal Lens</strong><p>${escapeHtml(sign.season)}</p><p class="mini">${escapeHtml(sign.seasonWork)}</p></div>
+            <div class="mini-card"><strong>Ruler Lens</strong><p>${escapeHtml(sign.ruler)}: ${escapeHtml(rulerKeywords(sign.ruler))}</p></div>
+          </div>
+          ${compact ? "" : `
+            <div style="margin-top:14px">
+              ${noteBox(noteKey("lesson", sign.id), `${sign.name} lesson notes`, 5)}
+            </div>
+            <div class="card-grid" style="margin-top:14px">
+              ${sign.cards.map(card => renderCourseCard(sign, card, true)).join("")}
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function rulerKeywords(ruler) {
+      const planet = PLANET_CARDS.find(item => item.planet.toLowerCase() === ruler.toLowerCase());
+      if (planet) return planet.keyword;
+      const map = {
+        Mars: "Warrior energy, vital energy, action, ambition",
+        Venus: "Beauty, love, pleasure, material prosperity",
+        Mercury: "Communication, individual mind, intellect, reason",
+        Moon: "Subconscious, intuition, emotional self, magic",
+        Sun: "Ego, identity, authenticity, pride, expression",
+        Pluto: "Letting go, power, transformation, psyche",
+        Jupiter: "Expansive growth, higher thinking, luck, abundance",
+        Saturn: "Boundaries, time, initiation, cycles, responsibility",
+        Uranus: "Awakening, change, revolution, innovation",
+        Neptune: "Oneness, dreams, hope, creativity, fantasy"
+      };
+      return map[ruler] || "";
+    }
+
+    function renderCourseCard(sign, card, includeNotes = false) {
+      const key = noteKey("card", `${sign.id}:${card.name}`);
+      return `
+        <article class="course-card">
+          <div class="top">
+            <div class="card-title">
+              <strong>${escapeHtml(card.name)}</strong>
+              <span class="card-meta">${escapeHtml(card.kind)} | ${escapeHtml(card.planet)}</span>
+            </div>
+            <div class="arcana">${escapeHtml(cardMark(card.name))}</div>
+          </div>
+          <div class="body">
+            <p><strong>${escapeHtml(card.keyword)}</strong></p>
+            <p>${escapeHtml(card.teaching)}</p>
+          </div>
+          <div class="foot">
+            <span class="mini">${escapeHtml(sign.name)} | ${escapeHtml(sign.element)}</span>
+            <button class="btn ghost" data-ico=">" data-action="select-sign-tab" data-sign="${sign.id}">Lesson</button>
+          </div>
+          ${includeNotes ? `<div class="body">${noteBox(key, `${card.name} notes`, 4)}</div>` : ""}
+        </article>
+      `;
+    }
+
+    function renderLessons() {
+      const sign = signById(state.activeSign);
+      return `
+        <div class="view">
+          <section class="band">
+            <div class="layout-2">
+              <div class="stack">
+                <div class="surface">
+                  <div class="section-head">
+                    <div class="copy">
+                      <h2>Lesson Hub</h2>
+                      <p class="muted">Intro plus every zodiac season, mapped to the PDF workbook pages and video transcripts.</p>
+                    </div>
+                  </div>
+                  ${lessonCheck(INTRO.id, "Intro")}
+                  <div style="margin-top:12px">${noteBox(noteKey("lesson", INTRO.id), "Intro notes", 5)}</div>
+                  <ul class="prompt-list" style="margin-top:12px">
+                    ${INTRO.prompts.map(prompt => `<li>${escapeHtml(prompt)}</li>`).join("")}
+                  </ul>
+                </div>
+                <div class="surface">
+                  <h3 style="margin-bottom:12px">Choose Lesson</h3>
+                  ${signButtons()}
+                </div>
+                <div class="surface">
+                  <div class="section-head">
+                    <div class="copy">
+                      <h3>Additional Lessons</h3>
+                      <p class="mini">The two added transcripts now anchor the court-card and planetary-major sections.</p>
+                    </div>
+                  </div>
+                  <div class="stack">
+                    ${EXTRA_LESSONS.map(renderExtraLesson).join("")}
+                  </div>
+                </div>
+              </div>
+              <div class="stack">
+                ${renderSignDetail(sign, false)}
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderExtraLesson(lesson) {
+      return `
+        <article class="mini-card">
+          <div class="mini-top">
+            <div>
+              <strong>${escapeHtml(lesson.name)}</strong>
+              <p class="card-meta">Reference Lesson</p>
+            </div>
+            ${lessonCheck(lesson.id, lesson.name)}
+          </div>
+          <p>${escapeHtml(lesson.essence)}</p>
+          <p class="mini">${escapeHtml(lesson.growth)}</p>
+          <ul class="prompt-list">
+            ${lesson.prompts.map(prompt => `<li>${escapeHtml(prompt)}</li>`).join("")}
+          </ul>
+          ${noteBox(noteKey("lesson", lesson.id), `${lesson.name} notes`, 4)}
+        </article>
+      `;
+    }
+
+    function renderLibrary() {
+      const query = state.libraryQuery.trim().toLowerCase();
+      const filter = state.libraryFilter === "all" ? "All" : state.libraryFilter || "All";
+      let cards = allLibraryCards();
+      if (filter !== "All") {
+        cards = cards.filter(card => {
+          if (["Fire", "Earth", "Air", "Water"].includes(filter)) return card.element === filter;
+          if (filter === "Major") return card.category === "Major" || card.category === "Planet";
+          if (filter === "Minor") return card.category === "Minor";
+          if (filter === "Court") return card.category === "Court";
+          if (filter === "Ace") return card.category === "Ace";
+          if (filter === "Zodiac") return Boolean(card.signId);
+          if (filter === "Planet") return card.category === "Planet";
+          return true;
+        });
+      }
+      if (query) {
+        cards = cards.filter(card => [
+          card.name, card.keyword, card.teaching, card.signName, card.element, card.modality, card.ruler, card.planet, card.kind, card.category, card.suit, card.signs, card.family, card.traits
+        ].join(" ").toLowerCase().includes(query));
+      }
+      return `
+        <div class="view">
+          <section class="library-cover">
+            <div class="section-head">
+              <div class="copy">
+                <div class="kicker">Card Library</div>
+                <h2>Search the whole course by card, sign, planet, element, or keyword.</h2>
+                <p class="muted">Court cards, planetary majors, zodiac majors, aces, and minor correspondences all live in one index now.</p>
+              </div>
+            </div>
+            <div class="library-toolbar">
+              <label>
+                <span>Search</span>
+                <input type="search" id="library-search" value="${escapeHtml(state.libraryQuery)}" placeholder="Try King of Wands, Six of Wands, Venus, Scorpio, grief">
+              </label>
+              <div class="filter-strip">
+                ${["All", "Major", "Minor", "Court", "Ace", "Fire", "Water", "Air", "Earth", "Zodiac", "Planet"].map(item => `
+                  <button class="chip" data-action="library-filter" data-filter="${escapeHtml(item)}" data-active="${filter === item}">${escapeHtml(item)}</button>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+
+          <section class="surface library-panel">
+            <div class="section-head">
+              <div class="copy">
+                <h3>${cards.length} Card${cards.length === 1 ? "" : "s"}</h3>
+                <p class="mini">${filter}${query ? ` | "${escapeHtml(state.libraryQuery)}"` : ""}</p>
+              </div>
+            </div>
+            <div class="library-results card-index">
+              ${cards.length ? cards.map(card => renderLibraryCard(card)).join("") : `<div class="empty">No cards match this search yet. Try a card name, sign, planet, suit, or keyword.</div>`}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderLibraryCard(card, compact = false) {
+      const accentClass = ["Fire", "Earth", "Air", "Water"].includes(card.element) ? card.element.toLowerCase() : "planet";
+      const lessonLabel = card.lessonId === "court-cards" ? "Court Cards" : card.lessonId === "planetary-majors" ? "Other Major Arcana" : card.signName;
+      return `
+        <article class="library-card ${accentClass}">
+          <div class="library-card-head">
+            <div class="arcana">${escapeHtml(cardMark(card.name))}</div>
+            <div>
+              <strong>${escapeHtml(card.name)}</strong>
+              <p class="card-meta">${escapeHtml(card.kind)} | ${escapeHtml(card.planet)}</p>
+            </div>
+          </div>
+          <div class="badge-row">
+            <span class="badge ${accentClass}">${escapeHtml(card.element)}</span>
+            <span class="badge">${escapeHtml(card.category)}</span>
+            <span class="badge">${escapeHtml(card.ruler)}</span>
+          </div>
+          <p><strong>${escapeHtml(card.keyword)}</strong></p>
+          <p>${escapeHtml(card.teaching)}</p>
+          ${card.traits && !compact ? `<p class="mini">${escapeHtml(card.traits)}</p>` : ""}
+          ${noteBox(card.noteKey, `${card.name} notes`, compact ? 2 : 3)}
+          <button class="btn ghost" data-ico=">" data-action="select-lesson" data-lesson="${card.lessonId}">Open ${escapeHtml(lessonLabel)}</button>
+        </article>
+      `;
+    }
+
+    function renderSpreads() {
+      const seasons = ["Spring", "Summer", "Fall", "Winter"];
+      const activeSeason = state.activeSpreadSeason || "Spring";
+      const seasonSpreads = SPREADS.filter(s => s.season === activeSeason);
+      const activeId = state.activeSpread || seasonSpreads[0].id;
+      const spread = SPREADS.find(s => s.id === activeId) || seasonSpreads[0];
+      const sign = spread.sign ? signById(spread.sign) : null;
+      const seasonColors = { Spring: "var(--teal)", Summer: "var(--gold)", Fall: "var(--rose-deep)", Winter: "var(--violet)" };
+      const accentColor = seasonColors[activeSeason] || "var(--teal)";
+      return `
+        <div class="view">
+          <section class="library-cover">
+            <div class="section-head">
+              <div class="copy">
+                <div class="kicker">Seasonal Spreads</div>
+                <h2>20 spreads across four seasons</h2>
+                <p class="muted">Pull cards at the beginning of each astrological season to channel that energy for personal growth.</p>
+              </div>
+            </div>
+            <p class="mini" style="margin-top:4px;padding:8px 10px;border-radius:var(--radius);background:rgba(255,255,255,0.48);border:1px solid rgba(139,115,148,0.12)">Southern Hemisphere: the zodiac seasons follow the same calendar dates worldwide. Your physical seasons are reversed, but the astrological energy follows the same calendar.</p>
+          </section>
+          <section class="study-shell">
+            <aside class="lesson-rail">
+              <div class="rail-head">
+                <h4>Season</h4>
+              </div>
+              <div class="filter-strip" style="margin-bottom:8px">
+                ${seasons.map(s => `
+                  <button class="chip" data-action="spread-season" data-season="${s}" data-active="${activeSeason === s}" style="flex:1">${s}</button>
+                `).join("")}
+              </div>
+              <div class="lesson-list">
+                ${seasonSpreads.map(s => {
+                  const isActive = s.id === activeId;
+                  return `
+                    <button class="lesson-button" data-action="select-spread" data-spread="${s.id}" data-active="${isActive}">
+                      <span class="lesson-dot" style="border-color:${accentColor}${isActive ? ";background:" + accentColor : ""}"></span>
+                      <span>
+                        <strong>${escapeHtml(s.name)}</strong>
+                        <em>${s.cards}-card spread</em>
+                      </span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+            </aside>
+            <div class="lesson-stage">
+              <section class="surface">
+                <div class="section-head">
+                  <div class="copy">
+                    <div class="kicker" style="color:${accentColor}">${escapeHtml(spread.season)} Spread</div>
+                    <h2>${escapeHtml(spread.name)}</h2>
+                    ${sign ? `<p class="muted">${escapeHtml(sign.essence)}</p>` : ""}
+                  </div>
+                </div>
+                ${sign ? `
+                  <div class="badge-row" style="margin-bottom:14px">
+                    <span class="badge ${sign.element.toLowerCase()}">${escapeHtml(sign.element)}</span>
+                    <span class="badge">${escapeHtml(sign.modality)}</span>
+                    <span class="badge">${escapeHtml(sign.ruler)}</span>
+                    <span class="badge">${escapeHtml(sign.dates)}</span>
+                  </div>
+                ` : ""}
+                <div class="spread-layout" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0;padding:18px;border-radius:var(--radius);background:linear-gradient(145deg,rgba(244,197,213,0.2),rgba(216,243,240,0.3)),rgba(255,255,255,0.38)">
+                  ${spread.questions.map((q, i) => `
+                    <div style="display:grid;place-items:center;width:80px;height:110px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.72);background:linear-gradient(145deg,rgba(255,255,255,0.72),rgba(216,243,240,0.34)),linear-gradient(315deg,rgba(244,197,213,0.34),rgba(133,96,167,0.16));box-shadow:inset 0 0 0 3px rgba(255,255,255,0.28),0 8px 18px rgba(74,44,84,0.1);text-align:center">
+                      <span style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--violet)">${i + 1}</span>
+                    </div>
+                  `).join("")}
+                </div>
+                <ul class="prompt-list">
+                  ${spread.questions.map((q, i) => `
+                    <li><strong>${i + 1}.</strong> ${escapeHtml(q)}</li>
+                  `).join("")}
+                </ul>
+                ${sign ? `
+                  <div class="mini-card" style="margin-top:14px">
+                    <strong>Growth lens</strong>
+                    <p>${escapeHtml(sign.growth)}</p>
+                    <p class="mini">${escapeHtml(sign.seasonWork)}</p>
+                  </div>
+                ` : ""}
+                <section class="surface" style="margin-top:14px">
+                  <h4>Record a Reading</h4>
+                  <div style="display:grid;gap:8px;margin-top:10px">
+                    <label><span>Context</span><input type="text" id="spread-context" placeholder="Self, client, date, or intention"></label>
+                    ${spread.questions.map((q, i) => `
+                      <div class="spread-position-row">
+                        <div class="spread-pos-num">${i + 1}</div>
+                        <div class="spread-pos-fields">
+                          <p class="mini" style="margin-bottom:4px">${escapeHtml(q)}</p>
+                          <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">
+                            <label><span>Card drawn</span><input type="text" id="spread-card-${i}" placeholder="e.g. The Tower"></label>
+                            <label><span>What it said</span><textarea id="spread-note-${i}" rows="2"></textarea></label>
+                          </div>
+                        </div>
+                      </div>
+                    `).join("")}
+                    <label><span>Overall takeaway</span><textarea id="spread-takeaway" rows="2" placeholder="What stood out across the whole reading?"></textarea></label>
+                  </div>
+                  <div class="button-row" style="margin-top:10px">
+                    <button class="btn primary" data-ico="+" data-action="save-spread-reading" data-spread="${spread.id}" data-positions="${spread.questions.length}">Save Reading</button>
+                  </div>
+                </section>
+                <section class="surface" style="margin-top:10px">
+                  <div class="section-head">
+                    <div class="copy">
+                      <h4>Saved Readings</h4>
+                      <p class="mini">${(state.spreadReadings || []).filter(r => r.spreadId === spread.id).length} saved</p>
+                    </div>
+                  </div>
+                  <div class="stack">
+                    ${(state.spreadReadings || []).filter(r => r.spreadId === spread.id).length
+                      ? (state.spreadReadings || []).filter(r => r.spreadId === spread.id).map(r => `
+                        <article class="reading-entry">
+                          <div class="section-head">
+                            <div class="copy">
+                              <h4>${escapeHtml(spread.name)}</h4>
+                              <p class="mini">${escapeHtml(r.created)}</p>
+                            </div>
+                            <button class="btn warn" data-ico="x" data-action="delete-spread-reading" data-reading="${r.id}">Delete</button>
+                          </div>
+                          ${r.context ? `<p><strong>Context:</strong> ${escapeHtml(r.context)}</p>` : ""}
+                          ${(r.positions || []).length ? r.positions.map((p, i) => `
+                            <div style="padding:6px 0;border-bottom:1px solid var(--line)">
+                              <p class="mini" style="margin-bottom:2px"><strong>Position ${i + 1}:</strong> ${escapeHtml(spread.questions[i] || "")}</p>
+                              ${p.card ? `<p><strong>${escapeHtml(p.card)}</strong>${p.note ? " — " + escapeHtml(p.note) : ""}</p>` : (p.note ? `<p>${escapeHtml(p.note)}</p>` : "")}
+                            </div>
+                          `).join("") : ""}
+                          ${r.takeaway ? `<p style="margin-top:6px"><strong>Takeaway:</strong> ${escapeHtml(r.takeaway)}</p>` : ""}
+                        </article>
+                      `).join("")
+                      : `<div class="empty">No saved readings for this spread yet.</div>`
+                    }
+                  </div>
+                </section>
+              </section>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderLab() {
+      const sign = signById(state.activeSign);
+      const draw = state.currentDraw || { signId: sign.id, cardName: sign.cards[0].name };
+      const drawSign = signById(draw.signId);
+      const drawCard = drawSign.cards.find(card => card.name === draw.cardName) || drawSign.cards[0];
+      return `
+        <div class="view">
+          <section class="band">
+            <div class="lab-grid">
+              <div class="stack">
+                <div class="draw-card">
+                  <div>
+                    <div class="arcana">${escapeHtml(cardMark(drawCard.name))}</div>
+                    <h2>${escapeHtml(drawCard.name)}</h2>
+                    <p><strong>${escapeHtml(drawSign.name)}</strong> | ${escapeHtml(drawCard.keyword)}</p>
+                    <p class="mini">${escapeHtml(drawCard.kind)} | ${escapeHtml(drawCard.planet)}</p>
+                  </div>
+                </div>
+                <div class="button-row">
+                  <button class="btn primary" data-ico="+" data-action="random-card">Draw Card</button>
+                  <button class="btn" data-ico=">" data-action="select-sign-tab" data-sign="${drawSign.id}">Open Lesson</button>
+                </div>
+              </div>
+
+              <div class="stack">
+                <section class="surface">
+                  <div class="section-head">
+                    <div class="copy">
+                      <h2>Reading Lab</h2>
+                      <p class="muted">${escapeHtml(drawCard.teaching)}</p>
+                    </div>
+                  </div>
+                  <div class="layout-3">
+                    <label><span>Sign lens</span><select id="lab-sign">${SIGNS.map(item => `<option value="${item.id}" ${item.id === drawSign.id ? "selected" : ""}>${item.name}</option>`).join("")}</select></label>
+                    <label><span>Question</span><input type="text" id="lab-question" placeholder="Reading question or seasonal focus"></label>
+                    <label><span>Client or context</span><input type="text" id="lab-context" placeholder="Self, client, season, or spread position"></label>
+                  </div>
+                  <div class="layout-3" style="margin-top:12px">
+                    <label><span>Card message</span><textarea id="lab-card" rows="5"></textarea></label>
+                    <label><span>Astrology lens</span><textarea id="lab-astro" rows="5">${escapeHtml(drawSign.growth)}</textarea></label>
+                    <label><span>Next question</span><textarea id="lab-next" rows="5"></textarea></label>
+                  </div>
+                  <div class="button-row" style="margin-top:12px">
+                    <button class="btn primary" data-ico="+" data-action="save-reading">Save Reading</button>
+                  </div>
+                </section>
+
+                <section class="surface">
+                  <div class="section-head">
+                    <div class="copy">
+                      <h3>Saved Readings</h3>
+                      <p class="mini">${state.readings.length} saved</p>
+                    </div>
+                  </div>
+                  <div class="stack">
+                    ${state.readings.length ? state.readings.map(renderReading).join("") : `<div class="empty">No saved reading labs yet.</div>`}
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderReading(reading) {
+      return `
+        <article class="reading-entry">
+          <div class="section-head">
+            <div class="copy">
+              <h4>${escapeHtml(reading.cardName)} | ${escapeHtml(reading.signName)}</h4>
+              <p class="mini">${escapeHtml(reading.created)}</p>
+            </div>
+            <button class="btn warn" data-ico="x" data-action="delete-reading" data-reading="${reading.id}">Delete</button>
+          </div>
+          ${reading.question ? `<p><strong>Question:</strong> ${escapeHtml(reading.question)}</p>` : ""}
+          ${reading.context ? `<p><strong>Context:</strong> ${escapeHtml(reading.context)}</p>` : ""}
+          ${reading.card ? `<p><strong>Card:</strong> ${escapeHtml(reading.card)}</p>` : ""}
+          ${reading.astro ? `<p><strong>Astrology:</strong> ${escapeHtml(reading.astro)}</p>` : ""}
+          ${reading.next ? `<p><strong>Next question:</strong> ${escapeHtml(reading.next)}</p>` : ""}
+        </article>
+      `;
+    }
+
+    function renderNotes() {
+      const notes = Object.entries(state.notes)
+        .filter(([, value]) => String(value || "").trim())
+        .sort(([a], [b]) => a.localeCompare(b));
+      return `
+        <div class="view">
+          <section class="band">
+            <div class="section-head">
+              <div class="copy">
+                <h2>Notes and Export</h2>
+                <p class="muted">Saved lesson, card, planet, and court notes.</p>
+              </div>
+              <div class="button-row">
+                <button class="btn" data-ico="=" data-action="copy-export">Copy</button>
+                <button class="btn" data-ico="v" data-action="download-md">Markdown</button>
+                <button class="btn" data-ico="v" data-action="download-json">JSON</button>
+                <button class="btn" data-ico="p" data-action="print">Print</button>
+              </div>
+            </div>
+            <div class="layout-2">
+              <section class="surface">
+                <h3 style="margin-bottom:12px">Saved Notes</h3>
+                <div class="stack">
+                  ${notes.length ? notes.map(([key, value]) => `
+                    <article class="note-item">
+                      <strong>${escapeHtml(readableKey(key))}</strong>
+                      <pre>${escapeHtml(value)}</pre>
+                    </article>
+                  `).join("") : `<div class="empty">No saved notes yet.</div>`}
+                </div>
+              </section>
+              <section class="surface">
+                <h3 style="margin-bottom:12px">Reading Labs</h3>
+                <div class="stack">
+                  ${state.readings.length ? state.readings.map(renderReading).join("") : `<div class="empty">No saved reading labs yet.</div>`}
+                </div>
+              </section>
+              <section class="surface">
+                <h3 style="margin-bottom:12px">Spread Readings</h3>
+                <div class="stack">
+                  ${(state.spreadReadings || []).length ? (state.spreadReadings || []).map(r => `
+                    <article class="reading-entry">
+                      <div class="section-head">
+                        <div class="copy">
+                          <h4>${escapeHtml(r.spreadName)}</h4>
+                          <p class="mini">${escapeHtml(r.created)}</p>
+                        </div>
+                      </div>
+                      ${r.context ? `<p><strong>Context:</strong> ${escapeHtml(r.context)}</p>` : ""}
+                      ${(r.positions || []).length ? r.positions.map((p, i) =>
+                        (p.card || p.note) ? `<p><strong>${i + 1}.</strong> ${p.card ? escapeHtml(p.card) : ""}${p.card && p.note ? " — " : ""}${p.note ? escapeHtml(p.note) : ""}</p>` : ""
+                      ).join("") : ""}
+                      ${r.takeaway ? `<p><strong>Takeaway:</strong> ${escapeHtml(r.takeaway)}</p>` : ""}
+                    </article>
+                  `).join("") : `<div class="empty">No saved spread readings yet.</div>`}
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function readableKey(key) {
+      return key
+        .replace(/^lesson:/, "Lesson: ")
+        .replace(/^card:/, "Card: ")
+        .replace(/^planet:/, "Planet card: ")
+        .replace(/^court-card:/, "Court card: ")
+        .replace(/^court:/, "Court: ")
+        .replace(/:/g, " - ");
+    }
+
+    function exportText() {
+      const parts = [];
+      parts.push("# The Magic of Tarot and Astrology Notes");
+      parts.push("");
+      parts.push(`Exported: ${new Date().toLocaleString()}`);
+      parts.push("");
+      parts.push("## Lesson Progress");
+      [{ id: INTRO.id, name: "Intro" }]
+        .concat(SIGNS.map(sign => ({ id: sign.id, name: sign.name })))
+        .concat(EXTRA_LESSONS.map(lesson => ({ id: lesson.id, name: lesson.name })))
+        .forEach(item => {
+        parts.push(`- ${state.completed[item.id] ? "[x]" : "[ ]"} ${item.name}`);
+      });
+      parts.push("");
+      parts.push("## Notes");
+      Object.entries(state.notes)
+        .filter(([, value]) => String(value || "").trim())
+        .sort(([a], [b]) => a.localeCompare(b))
+        .forEach(([key, value]) => {
+          parts.push(`### ${readableKey(key)}`);
+          parts.push(String(value).trim());
+          parts.push("");
+        });
+      parts.push("## Reading Labs");
+      state.readings.forEach(reading => {
+        parts.push(`### ${reading.cardName} | ${reading.signName}`);
+        parts.push(`Date: ${reading.created}`);
+        if (reading.question) parts.push(`Question: ${reading.question}`);
+        if (reading.context) parts.push(`Context: ${reading.context}`);
+        if (reading.card) parts.push(`Card: ${reading.card}`);
+        if (reading.astro) parts.push(`Astrology: ${reading.astro}`);
+        if (reading.next) parts.push(`Next question: ${reading.next}`);
+        parts.push("");
+      });
+      return parts.join("\n");
+    }
+
+    function download(filename, content, type = "text/plain") {
+      const blob = new Blob([content], { type });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
+    }
+
+    function toast(message) {
+      const box = document.getElementById("toast");
+      box.textContent = message;
+      box.dataset.show = "true";
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => {
+        box.dataset.show = "false";
+      }, 2200);
+    }
+
+    function saveReading() {
+      const sign = signById(document.getElementById("lab-sign").value);
+      const draw = state.currentDraw || { signId: sign.id, cardName: sign.cards[0].name };
+      const drawSign = signById(draw.signId);
+      const drawCard = drawSign.cards.find(card => card.name === draw.cardName) || drawSign.cards[0];
+      const reading = {
+        id: `reading-${Date.now()}`,
+        created: new Date().toLocaleString(),
+        signId: sign.id,
+        signName: sign.name,
+        cardName: drawCard.name,
+        question: document.getElementById("lab-question").value.trim(),
+        context: document.getElementById("lab-context").value.trim(),
+        card: document.getElementById("lab-card").value.trim(),
+        astro: document.getElementById("lab-astro").value.trim(),
+        next: document.getElementById("lab-next").value.trim()
+      };
+      state.readings.unshift(reading);
+      saveState();
+      render();
+      toast("Reading saved.");
+    }
+
+    function initTwinkles() {
+      const container = document.getElementById("starscape");
+      if (!container || container.children.length) return;
+      const colors = [
+        "rgba(255,255,255,0.92)",
+        "rgba(244,197,213,0.72)",
+        "rgba(216,243,240,0.8)",
+        "rgba(198,155,75,0.55)"
+      ];
+      for (let index = 0; index < 44; index += 1) {
+        const twinkle = document.createElement("div");
+        twinkle.className = "twinkle";
+        const size = 1 + Math.random() * 3;
+        twinkle.style.width = `${size}px`;
+        twinkle.style.height = `${size}px`;
+        twinkle.style.left = `${Math.random() * 98}%`;
+        twinkle.style.top = `${Math.random() * 98}%`;
+        twinkle.style.background = colors[index % colors.length];
+        twinkle.style.animationDuration = `${1.8 + Math.random() * 3.2}s`;
+        twinkle.style.animationDelay = `${Math.random() * 2.8}s`;
+        container.appendChild(twinkle);
+      }
+    }
+
+    document.addEventListener("click", event => {
+      const target = event.target.closest("[data-action]");
+      if (!target) return;
+      const action = target.dataset.action;
+
+      if (action === "tab") {
+        state.activeTab = target.dataset.tab;
+        saveState();
+        render();
+      }
+
+      if (action === "select-sign") {
+        state.activeSign = target.dataset.sign;
+        state.activeLesson = target.dataset.sign;
+        saveState();
+        render();
+      }
+
+      if (action === "select-sign-tab") {
+        state.activeSign = target.dataset.sign;
+        state.activeLesson = target.dataset.sign;
+        state.activeTab = "overview";
+        saveState();
+        render();
+      }
+
+      if (action === "select-lesson") {
+        state.activeLesson = target.dataset.lesson;
+        if (SIGNS.some(sign => sign.id === state.activeLesson)) {
+          state.activeSign = state.activeLesson;
+        }
+        state.activeTab = "overview";
+        saveState();
+        render();
+      }
+
+      if (action === "spread-season") {
+        state.activeSpreadSeason = target.dataset.season;
+        const first = SPREADS.find(s => s.season === state.activeSpreadSeason);
+        if (first) state.activeSpread = first.id;
+        saveState();
+        render();
+      }
+
+      if (action === "select-spread") {
+        state.activeSpread = target.dataset.spread;
+        saveState();
+        render();
+      }
+
+      if (action === "save-spread-reading") {
+        const spreadId = target.dataset.spread;
+        const posCount = parseInt(target.dataset.positions, 10) || 0;
+        const spread = SPREADS.find(s => s.id === spreadId);
+        const positions = [];
+        for (let i = 0; i < posCount; i++) {
+          const cardEl = document.getElementById("spread-card-" + i);
+          const noteEl = document.getElementById("spread-note-" + i);
+          positions.push({
+            card: cardEl ? cardEl.value.trim() : "",
+            note: noteEl ? noteEl.value.trim() : ""
+          });
+        }
+        const reading = {
+          id: `sr-${Date.now()}`,
+          created: new Date().toLocaleString(),
+          spreadId: spreadId,
+          spreadName: spread ? spread.name : spreadId,
+          context: document.getElementById("spread-context").value.trim(),
+          positions: positions,
+          takeaway: document.getElementById("spread-takeaway").value.trim()
+        };
+        if (!state.spreadReadings) state.spreadReadings = [];
+        state.spreadReadings.unshift(reading);
+        saveState();
+        render();
+        toast("Spread reading saved.");
+      }
+
+      if (action === "delete-spread-reading") {
+        if (!state.spreadReadings) state.spreadReadings = [];
+        state.spreadReadings = state.spreadReadings.filter(r => r.id !== target.dataset.reading);
+        saveState();
+        render();
+        toast("Spread reading deleted.");
+      }
+
+      if (action === "toggle-complete") {
+        const id = target.dataset.complete;
+        state.completed[id] = target.checked;
+        saveState();
+        render();
+      }
+
+      if (action === "left-filter") {
+        state.leftFilter = target.dataset.filter;
+        saveState();
+        render();
+      }
+
+      if (action === "library-filter") {
+        state.libraryFilter = target.dataset.filter;
+        saveState();
+        render();
+      }
+
+      if (action === "random-card") {
+        const cards = allSignCards();
+        const pick = cards[Math.floor(Math.random() * cards.length)];
+        state.currentDraw = { signId: pick.signId, cardName: pick.name };
+        state.activeSign = pick.signId;
+        saveState();
+        render();
+      }
+
+      if (action === "save-reading") {
+        saveReading();
+      }
+
+      if (action === "delete-reading") {
+        state.readings = state.readings.filter(reading => reading.id !== target.dataset.reading);
+        saveState();
+        render();
+        toast("Reading deleted.");
+      }
+
+      if (action === "copy-export") {
+        const text = exportText();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => toast("Notes copied."));
+        } else {
+          const area = document.createElement("textarea");
+          area.value = text;
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+          toast("Notes copied.");
+        }
+      }
+
+      if (action === "download-md") {
+        download("magic-tarot-astrology-notes.md", exportText(), "text/markdown");
+      }
+
+      if (action === "download-json") {
+        download("magic-tarot-astrology-data.json", JSON.stringify(state, null, 2), "application/json");
+      }
+
+      if (action === "print") {
+        window.print();
+      }
+    });
+
+    document.addEventListener("input", event => {
+      if (event.target.matches("[data-note]")) {
+        state.notes[event.target.dataset.note] = event.target.value;
+        saveState();
+      }
+
+      if (event.target.id === "library-search") {
+        state.libraryQuery = event.target.value;
+        saveState();
+        render();
+        const search = document.getElementById("library-search");
+        if (search) {
+          search.focus();
+          search.selectionStart = search.selectionEnd = state.libraryQuery.length;
+        }
+      }
+    });
+
+    document.addEventListener("change", event => {
+      if (event.target.id === "lab-sign") {
+        state.activeSign = event.target.value;
+        saveState();
+      }
+    });
+
+    initTwinkles();
+    render();
+  </script>
+</body>
+</html>
