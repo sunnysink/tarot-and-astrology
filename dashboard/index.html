@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Magic of Tarot and Astrology - Your Dashboard</title>
+<style>
+  /* Tokens copied from the Course Companion. Single source of truth:
+     brand/mota-design-system.md in biz-brain. System fonts on purpose. */
+  :root {
+    --ink: #27222c;
+    --muted: #6f6374;
+    --paper: #fff7fb;
+    --paper-deep: #eef9f8;
+    --panel: #fffdfd;
+    --line: rgba(139, 115, 148, 0.2);
+    --rose: #f4c5d5;        --rose-deep: #d889a5;
+    --teal: #248c90;        --teal-soft: #d9f3f0;
+    --violet: #8560a7;      --violet-soft: #efe6f8;
+    --gold: #c69b4b;        --gold-soft: #f4e3bf;
+    --green: #698c72;
+    --glass: rgba(255, 255, 255, 0.55);
+    --glass-strong: rgba(255, 255, 255, 0.72);
+    --glass-line: rgba(255, 255, 255, 0.62);
+    --shadow: 0 18px 52px rgba(74, 44, 84, 0.14);
+    --radius: 8px;
+    --sans: "Segoe UI", Arial, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+    --mono: "Cascadia Mono", "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; overflow-x: hidden; position: relative;
+    color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5;
+    background:
+      linear-gradient(135deg, rgba(244, 197, 213, 0.62) 0%, rgba(255, 255, 255, 0) 34%),
+      linear-gradient(220deg, rgba(157, 225, 219, 0.55) 0%, rgba(255, 255, 255, 0) 38%),
+      linear-gradient(180deg, #fff8fc 0%, #f5fbfb 46%, #f8f0fb 100%);
+    padding: 34px 18px 72px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1, h2, h3, h4 { margin: 0; line-height: 1.08; letter-spacing: 0; }
+  h1 { font-family: var(--serif); font-size: clamp(30px, 5vw, 44px); }
+  h2 { font-family: var(--serif); font-size: 22px; }
+  p { margin: 0; }
+  .muted { color: var(--muted); }
+
+  .surface, .band {
+    border: 1px solid var(--glass-line); border-radius: var(--radius);
+    background: var(--glass);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 12px 34px rgba(74, 44, 84, 0.1);
+  }
+  .mini-card {
+    border: 1px solid rgba(255, 255, 255, 0.62); border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.54);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 24px rgba(74, 44, 84, 0.08);
+  }
+  .kicker {
+    color: var(--teal); font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0; font-weight: 850;
+  }
+  .badge {
+    display: inline-flex; align-items: center; min-height: 28px; padding: 5px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.64); border-radius: 999px;
+    color: var(--ink); background: rgba(255, 255, 255, 0.54);
+    backdrop-filter: blur(10px); font-size: 12px; font-weight: 800;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 36px; padding: 8px 12px;
+    border: 1px solid rgba(139, 115, 148, 0.22); border-radius: var(--radius);
+    color: var(--ink); background: rgba(255, 255, 255, 0.58); cursor: pointer;
+    font-weight: 800; font-size: 13px; text-decoration: none;
+    box-shadow: 0 6px 18px rgba(74, 44, 84, 0.05);
+    transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); border-color: var(--teal); background: rgba(255,255,255,0.78); }
+  .btn.ghost { font-weight: 800; }
+  .badge.price { color: var(--teal); border-color: rgba(36, 140, 144, 0.28); background: var(--teal-soft); font-weight: 850; }
+  .section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+  .stack { display: grid; gap: 12px; }
+  .button-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+  /* header */
+  header.band { padding: 26px 26px 24px; margin-bottom: 18px; }
+  header .copy { margin-top: 10px; max-width: none; color: var(--muted); }
+
+  /* progress */
+  .progress { padding: 18px 22px; margin-bottom: 22px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
+  .ring { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; flex: none;
+          background: conic-gradient(var(--teal) calc(var(--pct) * 1%), rgba(255,255,255,0.5) 0); }
+  .ring i { width: 72px; height: 72px; border-radius: 50%; background: var(--panel); display: grid; place-items: center;
+            font-style: normal; font-weight: 850; font-size: 19px; color: var(--teal); }
+  .ptext h2 { margin-bottom: 4px; }
+  @media (max-width: 560px) { .progress { grid-template-columns: 1fr; justify-items: start; } }
+
+  /* sections */
+  section { margin-bottom: 22px; padding: 20px 22px; }
+  .items { display: grid; gap: 10px; }
+  .item { display: grid; grid-template-columns: 26px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; }
+  .item .name { font-weight: 800; }
+  .item .name small { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .item.done .name { color: var(--muted); text-decoration: line-through; }
+  .box { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid rgba(139,115,148,0.4);
+         background: rgba(255,255,255,0.7); cursor: pointer; display: grid; place-items: center; flex: none;
+         transition: background 140ms ease, border-color 140ms ease; }
+  .box::after { content: "✓"; font-size: 13px; font-weight: 800; color: #fff; opacity: 0; }
+  .item.done .box { background: var(--green); border-color: var(--green); }
+  .item.done .box::after { opacity: 1; }
+  @media (max-width: 620px) {
+    .item { grid-template-columns: 26px 1fr; }
+    .item .button-row { grid-column: 2; }
+  }
+
+  footer { margin-top: 30px; text-align: center; font-size: 12.5px; color: var(--muted); }
+  footer a { color: var(--teal); font-weight: 800; }
+  .note { margin-top: 16px; padding: 14px 16px; font-size: 13px; color: var(--muted); }
+  .note b { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="band">
+    <div class="kicker">Your course dashboard</div>
+    <h1>The Magic of Tarot and Astrology</h1>
+    <p class="copy">Everything you bought, in one place, with every training and every download linked. Tick things off as you go. Your progress saves on this device, so you can close the tab and pick it back up whenever.</p>
+    <div class="button-row" style="margin-top:16px">
+      <a class="btn" href="https://sunnysink.github.io/tarot-and-astrology/">Open the Course Companion</a>
+    </div>
+  </header>
+
+  <div class="progress surface">
+    <div class="ring" id="ring" style="--pct:0"><i id="pct">0%</i></div>
+    <div class="ptext">
+      <h2 id="ptitle">Start anywhere you like</h2>
+      <p class="muted" id="psub">Nothing ticked off yet. There is no right order, so open whichever one you actually want today.</p>
+      <div class="button-row" style="margin-top:12px">
+        <button class="btn ghost" id="reset">Clear my ticks</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+
+  <section class="surface">
+    <div class="section-head"><div><div class="kicker">Keep going</div><h2>Learn about our programs</h2></div></div>
+    <div class="items">
+      <div class="mini-card item" style="grid-template-columns:1fr auto">
+        <div class="name">High Priestess Tarot School<small>The membership this course comes from</small></div>
+        <div class="button-row"><span class="badge price">$7/month</span><a class="btn" href="https://highpriestessts.com/hpts-option" target="_blank" rel="noopener">Take a look</a></div>
+      </div>
+      <div class="mini-card item" style="grid-template-columns:1fr auto">
+        <div class="name">Soul-Forged Founders<small>Claude and AI for readers, coaches and practitioners</small></div>
+        <div class="button-row"><span class="badge price">$8/month</span><a class="btn" href="https://www.skool.com/soul-forged-founders" target="_blank" rel="noopener">Take a look</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note surface">
+    <b>Your ticks save on this device and nowhere else.</b> Nothing is sent anywhere and nobody else can see them. The trade is that your phone and your laptop keep separate copies, so pick one and stay on it.
+  </div>
+
+  <footer>The Magic of Tarot and Astrology · <a href="https://sunnysink.github.io/tarot-and-astrology/">Course Companion</a></footer>
+</div>
+
+<script>
+const KEY = 'mota-dashboard-v1';
+
+/* Pulled from the delivery sheet 2026-08-07. 23 items, 24 links.
+   r = resource (a download) · t = training (a video) */
+const SECTIONS = [
+  { name: 'Introduction', kicker: 'Start here', items: [
+    { n: 'Beginners Guide', d: 'How the whole course fits together',
+      r: 'https://drive.google.com/file/d/1XXvKnUxAULPe7LbEhi-R-g76TUkUmvJU/view?usp=sharing',
+      t: 'https://youtu.be/YYpRL_2JFuQ' },
+    { n: 'Yearly Astrology Guide', d: 'The year at a glance',
+      r: 'https://drive.google.com/file/d/1agtrP4-4SAew7Ko5XBWvoX4QPRyKFWh_/view?usp=sharing' }
+  ]},
+  { name: 'Zodiac Signs, Aries to Virgo', kicker: 'The first six', items: [
+    { n: 'Aries',  t: 'https://youtu.be/f-GXGDtqUIg' },
+    { n: 'Taurus', t: 'https://youtu.be/gzE2w29N-Co' },
+    { n: 'Gemini', t: 'https://youtu.be/GljSMrCirvk' },
+    { n: 'Cancer', t: 'https://youtu.be/HkGhI75eX-A' },
+    { n: 'Leo',    t: 'https://youtu.be/RBUPPs9DxKo' },
+    { n: 'Virgo',  t: 'https://youtu.be/Arl_CWw7dPs' }
+  ]},
+  { name: 'Zodiac Signs, Libra to Pisces', kicker: 'The second six', items: [
+    { n: 'Libra',       t: 'https://youtu.be/2-dOgoiSvic' },
+    { n: 'Scorpio',     t: 'https://youtu.be/aL22j20I0xE' },
+    { n: 'Sagittarius', t: 'https://youtu.be/-GkCtbWkLQw' },
+    { n: 'Capricorn',   t: 'https://youtu.be/QK_3x8mrSTU' },
+    { n: 'Aquarius',    t: 'https://youtu.be/Brco5-vzPT0' },
+    { n: 'Pisces',      t: 'https://youtu.be/L3BllGC9ASA' }
+  ]},
+  { name: 'Other Tarot Cards', kicker: 'Beyond the signs', items: [
+    { n: 'Astrology & The Court Cards', t: 'https://youtu.be/t2SSwPRZC-g' },
+    { n: 'Other Major Arcana Cards',    t: 'https://youtu.be/AmNd0Mn9rUM' }
+  ]},
+  { name: 'Seasonal Spreads and Readings', kicker: 'Work the season you are in', items: [
+    { n: 'Seasonal Spreads and Readings', d: 'How to use the seasonal spreads',
+      t: 'https://youtu.be/q4xS4_w0arw' },
+    { n: 'Spring Spreads', r: 'https://drive.google.com/file/d/1R8KnpbGqym8H2qKHzhPha_WuhGH_O77L/view?usp=drive_link' },
+    { n: 'Summer Spreads', r: 'https://drive.google.com/file/d/11nEoB68Wrxlm8ey0_sqnB0NWQ3BsJLYk/view?usp=drive_link' },
+    { n: 'Fall Spreads',   r: 'https://drive.google.com/file/d/1yVuTUNO0aMx8PJD4qhRpy_pcL_0ws7Ct/view?usp=drive_link' },
+    { n: 'Winter Spreads', r: 'https://drive.google.com/file/d/1CnsBRd5V8xdOEw5hZmUffOk5XbH8Eu95/view?usp=drive_link' }
+  ]}
+];
+
+let done = load();
+function load() {
+  try { const v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? new Set(v) : new Set(); }
+  catch (e) { return new Set(); }
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify([...done])); } catch (e) {} }
+
+const total = SECTIONS.reduce((a, s) => a + s.items.length, 0);
+const esc = v => String(v == null ? '' : v).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function draw() {
+  const host = document.getElementById('sections');
+  host.innerHTML = '';
+  SECTIONS.forEach((sec, si) => {
+    const doneHere = sec.items.filter((_, ii) => done.has(si + '-' + ii)).length;
+    const el = document.createElement('section');
+    el.className = 'surface';
+    let html = '<div class="section-head"><div><div class="kicker">' + esc(sec.kicker) + '</div>' +
+               '<h2>' + esc(sec.name) + '</h2></div>' +
+               '<span class="badge">' + doneHere + ' of ' + sec.items.length + '</span></div><div class="items">';
+    sec.items.forEach((it, ii) => {
+      const id = si + '-' + ii;
+      const isDone = done.has(id);
+      let links = '';
+      if (it.t) links += '<a class="btn" href="' + esc(it.t) + '" target="_blank" rel="noopener">Watch</a>';
+      if (it.r) links += '<a class="btn" href="' + esc(it.r) + '" target="_blank" rel="noopener">Download</a>';
+      html += '<div class="mini-card item' + (isDone ? ' done' : '') + '">' +
+              '<span class="box" data-id="' + id + '" role="checkbox" tabindex="0" aria-checked="' + isDone + '" aria-label="Mark ' + esc(it.n) + ' done"></span>' +
+              '<div class="name">' + esc(it.n) + (it.d ? '<small>' + esc(it.d) + '</small>' : '') + '</div>' +
+              '<div class="button-row">' + links + '</div></div>';
+    });
+    host.appendChild(el);
+    el.innerHTML = html + '</div>';
+  });
+
+  host.querySelectorAll('.box').forEach(box => {
+    const toggle = () => {
+      const id = box.dataset.id;
+      if (done.has(id)) done.delete(id); else done.add(id);
+      save(); draw();
+    };
+    box.onclick = toggle;
+    box.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } };
+  });
+
+  const n = done.size;
+  const pct = total ? Math.round(n / total * 100) : 0;
+  document.getElementById('ring').style.setProperty('--pct', pct);
+  document.getElementById('pct').textContent = pct + '%';
+  const title = document.getElementById('ptitle');
+  const sub = document.getElementById('psub');
+  if (n === 0) {
+    title.textContent = 'Start anywhere you like';
+    sub.textContent = 'Nothing ticked off yet. There is no right order, so open whichever one you actually want today.';
+  } else if (n === total) {
+    title.textContent = 'You have been through all of it';
+    sub.textContent = 'Every training watched and every guide downloaded. The seasonal spreads are worth coming back to four times a year.';
+  } else {
+    title.textContent = n + ' of ' + total + ' done';
+    sub.textContent = 'Your ticks are saved. Close the tab whenever and this is how you left it.';
+  }
+}
+
+document.getElementById('reset').onclick = () => {
+  if (!confirm('Clear every tick? This cannot be undone.')) return;
+  done = new Set(); save(); draw();
+};
+
+draw();
+</script>
+</body>
+</html>
